@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Sansation Regular";
+  src: url("../../fonts/Sansation-Regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.container {
+  margin-top: 32px;
+  display: flex; /* Establece el contenedor de enlaces como un flex container */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  width: auto; /* Ancho de la barra de navegación */
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column; /* Organiza los enlaces en una columna */
+}
+
+.link {
+  font-family: "Sansation Regular", sans-serif;
+  font-size: 10pt;
+  text-decoration: none;
+  color: #7e7f84;
+  padding: 16px;
+  display: flex; /* Hace que el enlace sea un contenedor flex */
+  flex-direction: column; /* Organiza los elementos en una columna */
+  align-items: center; /* Centra horizontalmente el contenido */
+}
+
+/* .link:hover {
+  border-radius: 30px;
+  background-color: lightgray;
+} */
+
+.icon {
+  font-weight: 600;
+  font-size: 16pt;
+  padding: 5px;
+}
+
+.iconConteiner:hover {
+  padding: 2px;
+  display: flex; /* Establece el contenedor de enlaces como un flex container */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  width: 90px;
+  border-radius: 30px;
+  background-color: lightgray;
+}
+
+.logo{
+  height: 35px;
+}

@@ -1,0 +1,4 @@
+.top_image {
+  width: 100%;
+  height: auto; /* Esto mantiene la relación de aspecto */
+}
