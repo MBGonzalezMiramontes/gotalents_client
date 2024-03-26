@@ -3,16 +3,16 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./views/home/home";
 import Companies from "./views/companies/companies";
 import Talents from "./views/talents/talents";
-import Footer from "./components/footer/footer";
+// import Footer from "./components/footer/footer";
 import NavBar from "./components/navbar/navbar";
 
 function App() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.navbar}>
-          <NavBar />
-        </div>
+   
+          <NavBar className={styles.navbar} />
+        
         <div className={styles.routes}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -21,7 +21,6 @@ function App() {
           </Routes>
         </div>
       </div>
-      <Footer className={styles.footer} />
     </div>
   );
 }

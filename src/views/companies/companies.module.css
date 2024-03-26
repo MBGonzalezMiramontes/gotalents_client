@@ -1,7 +1,26 @@
+@font-face {
+  font-family: "Sansation Regular";
+  src: url("../../fonts/Sansation-Regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sansation Bold";
+  src: url("../../fonts/Sansation-Bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
 .top_image {
   width: 100%;
   height: auto; /* Esto mantiene la relación de aspecto */
   margin-bottom: 32px;
+}
+
+.container {
+  background-color: #f1f1f1;
+  height: 1270px;
 }
 
 .title {
@@ -13,10 +32,10 @@
 }
 
 .title_body_container {
-  display: flex; /* Establece el contenedor de enlaces como un flex container */
+  display: flex; 
   flex-direction: column;
   justify-content: center; /* Centrar horizontalmente */
-  margin-left: 113px;
+  margin-left: 198px;
   margin-right: 185px;
 }
 
@@ -26,7 +45,7 @@
 }
 
 .cardsContainer {
-  display: flex; /* Establece el contenedor como un flex container */
+  display: flex; 
   flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
   justify-content: center;
 }
@@ -37,7 +56,7 @@
   display: flex; /* Establece el contenedor de enlaces como un flex container */
   flex-direction: column;
   justify-content: center; /* Centrar horizontalmente */
-  border: 3px solid #52c6fe;
+  border: 2px solid #52c6fe;
   border-radius: 30px;
   padding: 30px;
   background-color: #27b2f5;
@@ -45,8 +64,8 @@
   height: 150px;
   position: absolute; /* Establece la posición absoluta para la imagen */
   z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
-  top: 93%;
-  box-shadow: 0px 7.5px 15px rgba(0, 0, 0, 0.2);
+  top: 115%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .card2 {
@@ -61,39 +80,111 @@
   background-color: #27b2f5;
   width: 300px;
   height: 150px;
-  margin-top: 170px;
+  margin-top: 160px;
   margin-right: 500px;
   box-shadow: 0px 7.5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card3 {
   color: white;
-  position: relative;
-  display: flex; /* Establece el contenedor de enlaces como un flex container */
+  display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrar horizontalmente */
+  justify-content: center;
   border: 3px solid #52c6fe;
   border-radius: 30px;
   padding: 30px;
   background-color: #27b2f5;
   width: 300px;
   height: 150px;
-  width: 300px;
-  height: 150px;
-  margin-top: 190px;
-  margin-left: 90px;
-  position: absolute; /* Establece la posición absoluta para la imagen */
-  z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
-  margin-top: 15%;
+  position: absolute;
+  z-index: 1;
+  margin-top: 185px;
   margin-left: 500px;
+  margin-bottom: 100px;
   box-shadow: 0px 7.5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.subtitle{
+.subtitle {
   margin-bottom: 5px;
 }
 
 .paragraphCard {
   font-family: "Sansation Regular", sans-serif;
   color: white;
+}
+
+.secondContainer {
+  background-color: white;
+  margin-top: 80px;
+}
+
+.secondTitle {
+  color: #7e7f84;
+  font-size: 46pt;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 160px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.table {
+  color: #7e7f84;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 100px;
+}
+
+.tableContainer {
+  margin-top: 40px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableRow {
+  border: 2px solid #27b2f5;
+}
+
+.tableHeading {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.tableContent {
+  text-align: left;
+  font-family: "Sansation Regular", sans-serif;
+  font-weight: 200;
+  color: #7e7f84;
+}
+@media screen and (max-width: 768px) {
+  .tableContent {
+    padding-top: 10px;
+  }
+}
+
+.thirdContainer {
+  background-color: #27b2f5;
+  border-top-right-radius: 100%;
+  border-top-right-radius: 50%;
+}
+
+.thirdTitle {
+  color: white;
+  font-size: 46pt;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 80px;
+}
+
+.rectangle {
+  width: 768px;
+  height: 432px;
+  background-color: #7e7f84;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
