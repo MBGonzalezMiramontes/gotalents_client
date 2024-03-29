@@ -20,10 +20,12 @@
 
 .container {
   background-color: #f1f1f1;
-  height: 3500px;
+  height: auto;
 }
 
 .title {
+  position: relative;
+  z-index: 1;
   color: #f49728;
   font-size: 56pt;
   font-weight: 400;
@@ -32,6 +34,8 @@
 }
 
 .title_body_container {
+  position: relative;
+  z-index: 1;
   display: flex; /* Establece el contenedor de enlaces como un flex container */
   flex-direction: column;
   justify-content: center; /* Centrar horizontalmente */
@@ -42,14 +46,24 @@
 .paragraph {
   font-family: "Sansation Regular", sans-serif;
   color: #7e7f84;
+  position: relative;
+  z-index: 1;
+}
+
+.white_logo {
+  position: absolute;
+  top: 200px;
+  width: 100%;
 }
 
 .secondTitle {
+  position: relative;
+  z-index: 1;
   color: #7e7f84;
   font-size: 46pt;
   font-weight: 400;
-  margin-bottom: 20px;
-  margin-top: 100px;
+  margin-bottom: 50px;
+  margin-top: 200px;
 }
 
 .bold {
@@ -85,24 +99,23 @@
 .featuredCard {
   color: white;
   font-size: 1.5em;
-  display: flex; /* Establece el contenedor de enlaces como un flex container */
+  display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrar horizontalmente */
+  justify-content: center;
   border: 2px solid white;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   padding: 70px;
   background-color: #f49728;
   width: auto;
-  height: 100%;
   margin-top: 120px;
-  margin-bottom: -30px;
+  margin-bottom: -70px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .button {
-  position: absolute;
+  position: relative;
   background-color: white;
   color: #f49728;
   border: none;
@@ -110,7 +123,8 @@
   border-radius: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
-  top: 312%;
+  z-index: 1;
+  top: 30px;
 }
 
 .imagesContainer {
@@ -121,25 +135,28 @@
   border-radius: 40px;
   width: 60%;
   height: auto;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .coworkers_image {
+  margin-top: 40px;
   position: absolute;
   border-radius: 40px;
-  width: 30%;
+  width: 45%;
   height: auto;
   z-index: 1;
-  right: 184px;
+  right: 0px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .thirdContainer {
-  border-top-right-radius: 100%;
-  border-top-right-radius: 50%;
+  border-top-right-radius: 20%;
   background-color: white;
+  height: 1750px;
 }
 
 .thirdTitle {
-  color: #7e7f84;
+  color: white;
   font-size: 46pt;
   font-weight: 400;
   margin-bottom: 20px;
@@ -151,5 +168,63 @@
   height: 432px;
   background-color: #7e7f84;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
+}
+
+.fourthContainer {
+  margin-left: 197px;
+  margin-right: 185px;
+  margin-top: -100px;
+  height: 100px;
+}
+.featuredContainer {
+  background-color: #f49728;
+  border-bottom-right-radius: 20%;
+  border-top-right-radius: 20%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 107px;
+}
+
+.label {
+  margin-left: -100px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-family: "Sansation Regular", sans-serif;
+  color: #7e7f84;
+}
+
+input[type="text"] {
+  font-family: "Sansation Regular", sans-serif;
+  color: #7e7f84;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #27b2f5;
+}
+
+.formErrors {
+  font-family: "Sansation Regular", sans-serif;
+  color: red;
+  margin-top: 4px;
+}
+
+.buttonSubmit {
+  background-color: #f49728;
+  color: white;
+  border: none;
+  width: 180px;
+  border-radius: 60px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 20px;
 }

@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./views/home/home";
 import Companies from "./views/companies/companies";
 import Talents from "./views/talents/talents";
-// import Footer from "./components/footer/footer";
+import Footer from "./components/footer/footer";
 import NavBar from "./components/navbar/navbar";
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
             <Route path="/companies" element={<Companies />} />
           </Routes>
         </div>
+        <Footer/>
       </div>
     </div>
   );
