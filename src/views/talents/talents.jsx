@@ -6,6 +6,11 @@ import coworkers_image from "../../images/coworkers.png";
 import white_logo from "../../images/GoTalents-Logo-16.png";
 
 const Talents = () => {
+  const handleJoinOurTeamClick = () => {
+    const workWithUsTitle = document.getElementById("workWithUsTitle");
+    workWithUsTitle.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className={styles.container}>
       <img src={top_image} alt="top_image" className={styles.top_image} />
@@ -77,7 +82,9 @@ const Talents = () => {
               necessary elements so that you can perform work according to
               company requirements
             </p>
-            <button className={styles.button}>Join Our Team</button>
+            <button className={styles.button} onClick={handleJoinOurTeamClick}>
+              Join Our Team
+            </button>
           </div>
 
           <div className={styles.imagesContainer}>
@@ -97,91 +104,91 @@ const Talents = () => {
 
       <div className={styles.thirdContainer}>
         <div className={styles.featuredContainer}>
-        <div className={styles.title_body_container}>
-          <h2 className={styles.thirdTitle}>
-            How does it work our <br />
-            <span className={styles.bold}> process recruitment? </span>
-          </h2>
-          <div class={styles.rectangle}></div>
-        </div>
+          <div className={styles.title_body_container}>
+            <h2 className={styles.thirdTitle}>
+              How does it work our <br />
+              <span className={styles.bold}> process recruitment? </span>
+            </h2>
+            <div class={styles.rectangle}></div>
+          </div>
         </div>
 
         <div className={styles.fourthContainer}>
-        <h2 className={styles.secondTitle}>Work with us</h2>
+          <h2 className={styles.secondTitle} id="workWithUsTitle">
+            Work with us
+          </h2>
 
-        <form
-          // onSubmit={handleSubmit}
-          className={styles.form}
-        >
-          <label className={styles.label}>Nombre:</label>
-          <input
-            name="name"
-            // onChange={handleChange}
-            type="text"
-            placeholder="Mi nombre"
-          />
-          {/* <label className={styles.formErrors}>{error.name}</label> */}
+          <form
+            // onSubmit={handleSubmit}
+            className={styles.form}
+          >
+            <label className={styles.label}>Nombre:</label>
+            <input
+              name="name"
+              // onChange={handleChange}
+              type="text"
+              placeholder="Mi nombre"
+            />
+            {/* <label className={styles.formErrors}>{error.name}</label> */}
 
-          <label className={styles.label}>Apellido:</label>
-          <input
-            name="lastname"
-            // onChange={handleChange}
-            type="text"
-            placeholder="Mi apellido"
-          />
-          {/* <label className={styles.formErrors}>{error.lastname}</label> */}
+            <label className={styles.label}>Apellido:</label>
+            <input
+              name="lastname"
+              // onChange={handleChange}
+              type="text"
+              placeholder="Mi apellido"
+            />
+            {/* <label className={styles.formErrors}>{error.lastname}</label> */}
 
-          <label className={styles.label}>Carrera:</label>
-          <input
-            name="career"
-            // onChange={handleChange}
-            type="text"
-          />
-          {/* <label className={styles.formErrors}>{error.nationality}</label> */}
+            <label className={styles.label}>Carrera:</label>
+            <input
+              name="career"
+              // onChange={handleChange}
+              type="text"
+            />
+            {/* <label className={styles.formErrors}>{error.nationality}</label> */}
 
-          <label className={styles.label}>Correo electrónico:</label>
-          <input
-            name="email"
-            // onChange={handleChange}
-            type="text"
-            placeholder="Mi correo electrónico"
-          />
-          {/* <label className={styles.formErrors}>{error.nationality}</label> */}
+            <label className={styles.label}>Correo electrónico:</label>
+            <input
+              name="email"
+              // onChange={handleChange}
+              type="text"
+              placeholder="Mi correo electrónico"
+            />
+            {/* <label className={styles.formErrors}>{error.nationality}</label> */}
 
-          <label className={styles.label}>Teléfono:</label>
-          <input
-            name="phone"
-            // onChange={handleChange}
-            type="text"
-            placeholder="Teléfono de contacto (opcional)"
-          />
-          {/* <label className={styles.formErrors}>{error.dob}</label> */}
+            <label className={styles.label}>Teléfono:</label>
+            <input
+              name="phone"
+              // onChange={handleChange}
+              type="text"
+              placeholder="Teléfono de contacto (opcional)"
+            />
+            {/* <label className={styles.formErrors}>{error.dob}</label> */}
 
-          <label className={styles.label}>Curriculim Vite:</label>
-          <input
-            name="cv"
-            // onChange={handleChange}
-            type="text"
-            placeholder="Adjuntar mi curriculim vitae"
-          />
-          <button className={styles.buttonUpload}>Cargar</button>
-          {/* <label className={styles.formErrors}>{error.dob}</label> */}
+            <label className={styles.label}>Curriculim Vite:</label>
+            <input
+              name="cv"
+              // onChange={handleChange}
+              type="text"
+              placeholder="Adjuntar mi curriculim vitae"
+            />
+            <button className={styles.buttonUpload}>Cargar</button>
+            {/* <label className={styles.formErrors}>{error.dob}</label> */}
 
-          <label className={styles.label}>Cerificado de Idioma:</label>
-          <input
-            name="laguage"
-            // onChange={handleChange}
-            type="text"
-            placeholder="Adjuntar mi certificado de idioma (opcional)"
-          />
-          <button className={styles.buttonUpload}>Cargar</button>
-          {/* <label className={styles.formErrors}>{error.dob}</label> */}
-        </form>
-        <button className={styles.buttonSubmit}>Enviar</button>
+            <label className={styles.label}>Cerificado de Idioma:</label>
+            <input
+              name="laguage"
+              // onChange={handleChange}
+              type="text"
+              placeholder="Adjuntar mi certificado de idioma (opcional)"
+            />
+            <button className={styles.buttonUpload}>Cargar</button>
+            {/* <label className={styles.formErrors}>{error.dob}</label> */}
+          </form>
+          <button className={styles.buttonSubmit}>Enviar</button>
+        </div>
       </div>
-      </div>
-
-      
     </div>
   );
 };

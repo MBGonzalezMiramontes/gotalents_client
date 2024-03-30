@@ -12,10 +12,15 @@
   font-style: normal;
 }
 
+.container {
+  background-color: #f1f1f1;
+  height: 1100px;
+}
+
 .top_image {
   width: 100%;
   height: auto; /* Esto mantiene la relación de aspecto */
-  margin-bottom: 50px
+  margin-bottom: 50px;
 }
 
 .title_body_container {
@@ -43,7 +48,7 @@
   flex-direction: column;
   justify-content: center; /* Centrar horizontalmente */
   border: 2px solid white;
-  border-radius: 20px;
+  border-radius: 30px;
   padding-left: 30px; /* Espacio interno de la tarjeta */
   padding-right: 166px;
   margin: 20px; /* Agrega margen entre las tarjetas */
@@ -56,7 +61,7 @@
 .woman_image {
   position: absolute; /* Establece la posición absoluta para la imagen */
   bottom: 0%;
-  left: 70%; /* Posiciona la imagen en la parte izquierda del card */
+  left: 67%; /* Posiciona la imagen en la parte izquierda del card */
   width: auto; /* Ancho de la imagen igual al ancho del card */
   height: 100%; /* Altura de la imagen igual a la altura del card */
   z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
@@ -65,7 +70,7 @@
 .man_image {
   position: absolute; /* Establece la posición absoluta para la imagen */
   bottom: 0%;
-  left: 65%; /* Posiciona la imagen en la parte izquierda del card */
+  left: 59%; /* Posiciona la imagen en la parte izquierda del card */
   width: auto; /* Ancho de la imagen igual al ancho del card */
   height: 110%; /* Altura de la imagen igual a la altura del card */
   z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
@@ -116,6 +121,11 @@
   border-radius: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
+  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+  cursor: pointer; /* Cambio de cursor a mano */
+}
+.blueButton:hover {
+  background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
 }
 
 .orangeButton {
@@ -128,4 +138,9 @@
   border-radius: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
+  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+  cursor: pointer; /* Cambio de cursor a mano */
+}
+.orangeButton:hover {
+  background-color: #d88300; /* Color de fondo al pasar el mouse */
 }

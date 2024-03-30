@@ -1,10 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import top_image from "../../images/companies_image.png";
-// import Form from "react-bootstrap/Form";
-// import Select from "react-select";
 import styles from "./companies.module.css";
+import { useDispatch } from "react-redux";
+import { createCompany } from "../../redux/actions/actions";
+import validate from "./validation/validation";
 
 const Companies = () => {
+  const dispatch = useDispatch();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const [company, setCompany] = useState({
+    name: "",
+    lasname: "",
+    companyName: "",
+    category: "",
+    email: "",
+    phone: "",
+  });
+
+  const [error, setError] = useState({
+    name: "",
+    lastname: "",
+    companyName: "",
+    category: "",
+    email: "",
+    phone: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setCompany({
+      ...company,
+      [name]: value,
+    });
+
+    validate({ ...company, [name]: value }, name, error, setError);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    validate({ ...company }, error, setError);
+
+    const companyData = {
+      ...company,
+    };
+
+    // Aquí llama a la acción createCompany con los datos de la compañía
+    dispatch(createCompany(companyData))
+      .then(() => {
+        setAlertMessage("Compañía creada exitosamente");
+        setShowAlert(true);
+      })
+      .catch((error) => {
+        console.error("Error al crear la compañía:", error);
+      });
+  };
+
   return (
     <div className={styles.mainContainer}>
       <img src={top_image} alt="top_image" className={styles.top_image} />
@@ -171,65 +224,67 @@ const Companies = () => {
 
         <div className={styles.fourthContainer}>
           <h2 className={styles.secondTitle}>Contact us</h2>
-
-          <form
-            // onSubmit={handleSubmit}
-            className={styles.form}
-          >
+          {showAlert && (
+            <div className={styles.alert}>
+              {alertMessage}
+              <button onClick={() => setShowAlert(false)}>Cerrar</button>
+            </div>
+          )}
+          <form onSubmit={handleSubmit} className={styles.form}>
             <label className={styles.label}>Nombre:</label>
             <input
               name="name"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Mi nombre"
             />
-            {/* <label className={styles.formErrors}>{error.name}</label> */}
+            <label className={styles.formErrors}>{error.name}</label>
 
             <label className={styles.label}>Apellido:</label>
             <input
               name="lastname"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Mi apellido"
             />
 
-            {/* <label className={styles.formErrors}>{error.lastname}</label> */}
+            <label className={styles.formErrors}>{error.lastname}</label>
 
             <label className={styles.label}>Compañía:</label>
             <input
               name="companyName"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Nombre de la compañía"
             />
-            {/* <label className={styles.formErrors}>{error.nationality}</label> */}
+            <label className={styles.formErrors}>{error.companyName}</label>
 
             <label className={styles.label}>Rubro:</label>
-            <input
-              name="category"
-              // onChange={handleChange}
-              type="text"
-            />
-            {/* <label className={styles.formErrors}>{error.dob}</label> */}
+            <input name="category" onChange={handleChange} type="text" />
+            <label className={styles.formErrors}>{error.category}</label>
+
             <label className={styles.label}>Correo electrónico:</label>
             <input
               name="email"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Correo electrónico de contacto"
             />
-            {/* <label className={styles.formErrors}>{error.nationality}</label> */}
+            <label className={styles.formErrors}>{error.email}</label>
 
             <label className={styles.label}>Teléfono:</label>
             <input
               name="phone"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Teléfono de contacto (opcional)"
             />
-            {/* <label className={styles.formErrors}>{error.dob}</label> */}
+            <label className={styles.formErrors}>{error.phone}</label>
+            <button type="submit" className={styles.button}>
+              {" "}
+              Enviar
+            </button>
           </form>
-          <button className={styles.button}> Enviar</button>
         </div>
       </div>
     </div>

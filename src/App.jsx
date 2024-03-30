@@ -10,17 +10,17 @@ function App() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-   
-          <NavBar className={styles.navbar} />
-        
+        <NavBar className={styles.navbar} />
+
         <div className={styles.routes}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/talents" element={<Talents />} />
             <Route path="/companies" element={<Companies />} />
+            {/* <Route path="/aboutus" element={<AboutUs />} /> */}
           </Routes>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );

@@ -125,6 +125,12 @@
   padding-bottom: 20px;
   z-index: 1;
   top: 30px;
+  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+  cursor: pointer; /* Cambio de cursor a mano */
+}
+.button:hover {
+  color: #d88300;
+  background-color: #f1f1f1;
 }
 
 .imagesContainer {
@@ -227,4 +233,9 @@ input[type="text"]:focus {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-top: 20px;
+  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+  cursor: pointer; /* Cambio de cursor a mano */
+}
+.buttonSubmit:hover {
+  background-color: #d88300; /* Color de fondo al pasar el mouse */
 }

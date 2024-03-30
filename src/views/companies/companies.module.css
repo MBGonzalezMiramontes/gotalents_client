@@ -241,7 +241,9 @@ input[type="text"]:focus {
 .formErrors {
   font-family: "Sansation Regular", sans-serif;
   color: red;
-  margin-top: 4px;
+  margin-bottom: 20px;
+  font-size: 10pt;
+  margin-left: -105px;
 }
 
 .button {
@@ -255,4 +257,9 @@ input[type="text"]:focus {
   padding-bottom: 20px;
   margin-top: 20px;
   margin-bottom: 100px;
+  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+  cursor: pointer; /* Cambio de cursor a mano */
+}
+.button:hover {
+  background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
 }

@@ -3,6 +3,7 @@ import styles from "./home.module.css";
 import top_image from "../../images/top_home.png";
 import woman_image from "../../images/mujer.png";
 import man_image from "../../images/hombre.png";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -41,7 +42,9 @@ const Home = () => {
           <p className={styles.featurdBlue}>
             Find the ideal talent for you business right now.
           </p>
-          <button className={styles.blueButton}>Companies</button>
+          <Link to="/companies" className={styles.link}>
+            <button className={styles.blueButton}>Companies</button>
+          </Link>
         </div>
         <div className={styles.card}>
           <img src={man_image} alt="man_image" className={styles.man_image} />
@@ -53,7 +56,9 @@ const Home = () => {
           <p className={styles.featurdOrange}>
             Join a team where you can shine and stand out.
           </p>
-          <button className={styles.orangeButton}>Talents</button>
+          <Link to="/talents" className={styles.link}>
+            <button className={styles.orangeButton}>Talents</button>
+          </Link>
         </div>
       </div>
     </div>
