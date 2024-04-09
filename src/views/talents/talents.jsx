@@ -1,11 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import top_image from "../../images/talent_image.png";
 import styles from "./talents.module.css";
 import woman_image from "../../images/woman.png";
 import coworkers_image from "../../images/coworkers.png";
 import white_logo from "../../images/GoTalents-Logo-16.png";
+import { createTalent } from "../../redux/actions/actions";
+import validate from "./validation/validation";
 
 const Talents = () => {
+  const dispatch = useDispatch();
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [cvFile, setCvFile] = useState(null);
+  const [languageFile, setLanguageFile] = useState(null);
+
+  const [talent, setTalent] = useState({
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    position: "",
+    cvFile: null,
+    languageFile: null,
+  });
+
+  const [error, setError] = useState({
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    position: "",
+    cvFile: "",
+    languageFile: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setTalent({
+      ...talent,
+      [name]: value,
+    });
+
+    // validate({ ...talent, [name]: value }, name, error, setError);
+
+    if (name === "cvFile") {
+      setCvFile(event.target.files[0]);
+    } else if (name === "languageFile") {
+      setLanguageFile(event.target.files[0]);
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    validate({ ...talent }, error, setError);
+
+    const talentData = {
+      ...talent,
+      cvFile,
+      languageFile,
+    };
+
+    // Aquí llama a la acción createTalent con los datos del talento.
+    dispatch(createTalent(talentData))
+      .then(() => {
+        setAlertMessage("Talento creada exitosamente");
+        setShowAlert(true);
+      })
+      .catch((error) => {
+        console.error("Error al crear talento:", error);
+      });
+  };
+
   const handleJoinOurTeamClick = () => {
     const workWithUsTitle = document.getElementById("workWithUsTitle");
     workWithUsTitle.scrollIntoView({ behavior: "smooth" });
@@ -109,7 +176,7 @@ const Talents = () => {
               How does it work our <br />
               <span className={styles.bold}> process recruitment? </span>
             </h2>
-            <div class={styles.rectangle}></div>
+            <div className={styles.rectangle}></div>
           </div>
         </div>
 
@@ -117,76 +184,78 @@ const Talents = () => {
           <h2 className={styles.secondTitle} id="workWithUsTitle">
             Work with us
           </h2>
+          {showAlert && (
+            <div className={styles.alert}>
+              {alertMessage}
+              <button onClick={() => setShowAlert(false)}>Cerrar</button>
+            </div>
+          )}
 
-          <form
-            // onSubmit={handleSubmit}
-            className={styles.form}
-          >
+          <form onSubmit={handleSubmit} className={styles.form}>
             <label className={styles.label}>Nombre:</label>
             <input
               name="name"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Mi nombre"
             />
-            {/* <label className={styles.formErrors}>{error.name}</label> */}
+            <label className={styles.formErrors}>{error.name}</label>
 
             <label className={styles.label}>Apellido:</label>
             <input
               name="lastname"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Mi apellido"
             />
-            {/* <label className={styles.formErrors}>{error.lastname}</label> */}
+            <label className={styles.formErrors}>{error.lastname}</label>
 
             <label className={styles.label}>Carrera:</label>
-            <input
-              name="career"
-              // onChange={handleChange}
-              type="text"
-            />
-            {/* <label className={styles.formErrors}>{error.nationality}</label> */}
+            <input name="career" onChange={handleChange} type="text" />
+            <label className={styles.formErrors}>{error.position}</label>
 
             <label className={styles.label}>Correo electrónico:</label>
             <input
               name="email"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Mi correo electrónico"
             />
-            {/* <label className={styles.formErrors}>{error.nationality}</label> */}
+            <label className={styles.formErrors}>{error.email}</label>
 
             <label className={styles.label}>Teléfono:</label>
             <input
               name="phone"
-              // onChange={handleChange}
+              onChange={handleChange}
               type="text"
               placeholder="Teléfono de contacto (opcional)"
             />
-            {/* <label className={styles.formErrors}>{error.dob}</label> */}
+            <label className={styles.formErrors}>{error.phone}</label>
 
-            <label className={styles.label}>Curriculim Vite:</label>
+            <label className={styles.label}>Currículum Vitae:</label>
             <input
-              name="cv"
-              // onChange={handleChange}
-              type="text"
-              placeholder="Adjuntar mi curriculim vitae"
+              name="cvFile"
+              onChange={handleChange}
+              type="file"
+              accept=".pdf"
             />
-            <button className={styles.buttonUpload}>Cargar</button>
-            {/* <label className={styles.formErrors}>{error.dob}</label> */}
 
-            <label className={styles.label}>Cerificado de Idioma:</label>
+            <label className={styles.formErrors}>{error.cvFile}</label>
+
+            <label className={styles.label}>Certificado de Idioma:</label>
             <input
-              name="laguage"
-              // onChange={handleChange}
-              type="text"
-              placeholder="Adjuntar mi certificado de idioma (opcional)"
+              name="languageFile"
+              onChange={handleChange}
+              type="file"
+              accept=".pdf"
             />
-            <button className={styles.buttonUpload}>Cargar</button>
-            {/* <label className={styles.formErrors}>{error.dob}</label> */}
+
+            <label className={styles.formErrors}>{error.languageFile}</label>
+            <button type="submit" className={styles.buttonSubmit}>
+              {" "}
+              Enviar
+            </button>
           </form>
-          <button className={styles.buttonSubmit}>Enviar</button>
         </div>
       </div>
     </div>

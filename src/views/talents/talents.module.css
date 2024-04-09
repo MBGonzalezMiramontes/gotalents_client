@@ -158,7 +158,7 @@
 .thirdContainer {
   border-top-right-radius: 20%;
   background-color: white;
-  height: 1750px;
+  height: 1760px;
 }
 
 .thirdTitle {
@@ -221,10 +221,14 @@ input[type="text"]:focus {
 .formErrors {
   font-family: "Sansation Regular", sans-serif;
   color: red;
-  margin-top: 4px;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  font-size: 10pt;
+  margin-left: -105px;
 }
 
 .buttonSubmit {
+  margin-left: -105px;
   background-color: #f49728;
   color: white;
   border: none;

@@ -1,6 +1,6 @@
 const validate = (state, name, error, setError) => {
   const lettersRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
-  //   const validExtensions = ["pdf"];
+  const pdfExtensionRegex = /\.pdf$/i; // Expresión regular para validar la extensión PDF
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   const numberRegex = /^[0-9]+$/;
   if (name === "name" || name === "lastname" || name === "category") {
@@ -15,16 +15,16 @@ const validate = (state, name, error, setError) => {
     } else {
       setError({ ...error, [name]: "" });
     }
-  } else if (name === "companyName") {
-    if (state.companyName.trim() === "") {
-      setError({ ...error, companyName: "Campo requerido" });
-    } else if (state.companyName.trim().length < 2) {
-      setError({ ...error, companyName: "Debe tener al menos 2 caracteres." });
-    } else if (state.companyName.trim().length > 30) {
-      setError({ ...error, companyName: "Debe ser menor a 30 caracteres." });
-    } else {
-      setError({ ...error, companyName: "" });
-    }
+    // } else if (name === "companyName") {
+    //   if (state.companyName.trim() === "") {
+    //     setError({ ...error, companyName: "Campo requerido" });
+    //   } else if (state.companyName.trim().length < 2) {
+    //     setError({ ...error, companyName: "Debe tener al menos 2 caracteres." });
+    //   } else if (state.companyName.trim().length > 30) {
+    //     setError({ ...error, companyName: "Debe ser menor a 30 caracteres." });
+    //   } else {
+    //     setError({ ...error, companyName: "" });
+    //   }
   } else if (name === "email") {
     if (state.email.trim() === "") {
       setError({ ...error, email: "Campo requerido" });
@@ -37,20 +37,20 @@ const validate = (state, name, error, setError) => {
     } else {
       setError({ ...error, email: "" });
     }
-  } else if (name === "category") {
-    if (state.category.trim() === "") {
-      setError({ ...error, category: "Campo requerido" });
-    } else if (!lettersRegex.test(state.category)) {
+  } else if (name === "position") {
+    if (state.position.trim() === "") {
+      setError({ ...error, position: "Campo requerido" });
+    } else if (!lettersRegex.test(state.position)) {
       setError({
         ...error,
-        category: "Este campo solo puede contener letras",
+        position: "Este campo solo puede contener letras",
       });
-    } else if (state.category.trim().length < 4) {
-      setError({ ...error, category: "Debe tener al menos 4 caracteres" });
-    } else if (state.category.trim().length > 30) {
-      setError({ ...error, category: "Debe ser menor a 30 caracteres." });
+    } else if (state.position.trim().length < 4) {
+      setError({ ...error, position: "Debe tener al menos 4 caracteres" });
+    } else if (state.position.trim().length > 30) {
+      setError({ ...error, position: "Debe ser menor a 30 caracteres." });
     } else {
-      setError({ ...error, category: "" });
+      setError({ ...error, position: "" });
     }
   } else if (name === "phone") {
     if (state.phone.trim() === "") {
@@ -63,6 +63,18 @@ const validate = (state, name, error, setError) => {
       setError({ ...error, phone: "Este campo solo puede contener números." });
     } else {
       setError({ ...error, phone: "" });
+    }
+  } else if (name === "cvFile" || name === "languageFile") {
+    const file = state[name];
+    // if (!file) {
+    //   setError({ ...error, [name]: "Campo requerido." });
+    // } else {
+    const fileName = file.name;
+    if (!pdfExtensionRegex.test(fileName)) {
+      setError({ ...error, [name]: "El archivo debe ser un PDF." });
+    } else {
+      setError({ ...error, [name]: "" });
+      // }
     }
   }
 };

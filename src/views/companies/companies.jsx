@@ -12,7 +12,7 @@ const Companies = () => {
 
   const [company, setCompany] = useState({
     name: "",
-    lasname: "",
+    lastname: "",
     companyName: "",
     category: "",
     email: "",

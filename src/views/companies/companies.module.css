@@ -241,7 +241,8 @@ input[type="text"]:focus {
 .formErrors {
   font-family: "Sansation Regular", sans-serif;
   color: red;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  margin-top: -10px;
   font-size: 10pt;
   margin-left: -105px;
 }
