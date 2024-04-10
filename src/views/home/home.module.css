@@ -31,7 +31,8 @@
   margin-right: 185px;
 }
 
-.paragraph {
+.paragraph,
+.paragraphCard {
   font-family: "Sansation Regular", sans-serif;
   color: #7e7f84;
 }
@@ -49,6 +50,7 @@
   justify-content: center; /* Centrar horizontalmente */
   border: 2px solid white;
   border-radius: 30px;
+  padding-top: 20px;
   padding-left: 30px; /* Espacio interno de la tarjeta */
   padding-right: 166px;
   margin: 20px; /* Agrega margen entre las tarjetas */
@@ -90,19 +92,18 @@
   margin-top: 0px;
 }
 
-.subtitle_orange {
-  color: #f49728;
+.subtitle_orange,
+.subtitle_blue {
   font-size: 46pt;
   font-weight: 400;
   margin-bottom: 20px;
   margin-top: 0px;
 }
+.subtitle_orange {
+  color: #f49728;
+}
 .subtitle_blue {
   color: #27b2f5;
-  font-size: 46pt;
-  font-weight: 400;
-  margin-bottom: 20px;
-  margin-top: -18px;
 }
 
 .featurdBlue {
@@ -112,7 +113,6 @@
 }
 
 .blueButton {
-  position: absolute; /* Establece la posición absoluta para la imagen */
   top: 90%;
   background-color: #27b2f5;
   color: white;
@@ -129,7 +129,6 @@
 }
 
 .orangeButton {
-  position: absolute; /* Establece la posición absoluta para la imagen */
   top: 90%;
   background-color: #f49728;
   color: white;
@@ -143,4 +142,88 @@
 }
 .orangeButton:hover {
   background-color: #d88300; /* Color de fondo al pasar el mouse */
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    height: auto;
+    padding-bottom: 100px;
+  }
+
+  .paragraphCard {
+    font-family: "Sansation Regular", sans-serif;
+    color: #7e7f84;
+    padding-right: 0px;
+  }
+
+  .title_orange,
+  .subtitle_orange,
+  .subtitle_blue {
+    font-size: 44pt;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    height: auto;
+    padding-bottom: 100px;
+  }
+
+  .top_image {
+    margin-top: 90px;
+    margin-bottom: 20px;
+  }
+
+  .title_body_container {
+    margin: 16px;
+  }
+
+  .title_orange,
+  .subtitle_orange,
+  .subtitle_blue {
+    font-size: 32pt;
+    margin-bottom: 10px;
+  }
+
+  .paragraph {
+    margin-bottom: 20px;
+  }
+
+  .columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .woman_image,
+  .man_image {
+    left: 55%; /* Posiciona la imagen en la parte izquierda del card */
+    width: auto; /* Ancho de la imagen igual al ancho del card */
+    height: 100%; /* Altura de la imagen igual a la altura del card */
+  }
+
+  .paragraphCard {
+    font-family: "Sansation Regular", sans-serif;
+    color: #7e7f84;
+    padding-right: 230px;
+  }
+
+  .featurdOrange,
+  .featurdBlue {
+    padding-right: 230px;
+  }
+  .blueButton,
+  .orangeButton {
+    width: auto;
+    margin-top: 20px;
+    position: relative;
+    width: 150px;
+    top: auto;
+  }
 }

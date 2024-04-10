@@ -41,14 +41,15 @@ const Talents = () => {
       ...talent,
       [name]: value,
     });
-
-    // validate({ ...talent, [name]: value }, name, error, setError);
-
+  
     if (name === "cvFile") {
       setCvFile(event.target.files[0]);
     } else if (name === "languageFile") {
       setLanguageFile(event.target.files[0]);
     }
+  
+    // Llama a validate después de que se actualiza el estado del talent y el error
+    validate({ ...talent, [name]: value }, name, error, setError);
   };
 
   const handleSubmit = (event) => {
@@ -56,21 +57,34 @@ const Talents = () => {
 
     validate({ ...talent }, error, setError);
 
-    const talentData = {
-      ...talent,
-      cvFile,
-      languageFile,
-    };
+    const hasErrors = Object.values(error).some(
+      (errorMessage) => errorMessage !== ""
+    );
 
-    // Aquí llama a la acción createTalent con los datos del talento.
-    dispatch(createTalent(talentData))
-      .then(() => {
-        setAlertMessage("Talento creada exitosamente");
-        setShowAlert(true);
-      })
-      .catch((error) => {
-        console.error("Error al crear talento:", error);
-      });
+    if (!cvFile) {
+      setAlertMessage(
+        "Por favor, carga tu currículum antes de enviar la solicitud."
+      );
+      setShowAlert(true);
+      return; // Detener el envío del formulario
+    }
+    if (!hasErrors) {
+      const talentData = {
+        ...talent,
+        cvFile,
+        languageFile,
+      };
+
+      dispatch(createTalent(talentData))
+        .then(() => {
+          setAlertMessage("Haz enviado tu solicitud correctamente.");
+          setShowAlert(true);
+          
+        })
+        .catch((error) => {
+          console.error("Ups, no hemos podido enviar tu solicitud:", error);
+        });
+    }
   };
 
   const handleJoinOurTeamClick = () => {
@@ -211,7 +225,12 @@ const Talents = () => {
             <label className={styles.formErrors}>{error.lastname}</label>
 
             <label className={styles.label}>Carrera:</label>
-            <input name="career" onChange={handleChange} type="text" />
+            <input
+              name="position"
+              onChange={handleChange}
+              type="text"
+              placeholder="Ej: Arquitecto"
+            />
             <label className={styles.formErrors}>{error.position}</label>
 
             <label className={styles.label}>Correo electrónico:</label>
@@ -219,7 +238,7 @@ const Talents = () => {
               name="email"
               onChange={handleChange}
               type="text"
-              placeholder="Mi correo electrónico"
+              placeholder="Ej: micorreo@ejemplo.com"
             />
             <label className={styles.formErrors}>{error.email}</label>
 
@@ -228,28 +247,33 @@ const Talents = () => {
               name="phone"
               onChange={handleChange}
               type="text"
-              placeholder="Teléfono de contacto (opcional)"
+              placeholder="(Opcional) Teléfono de contacto"
             />
             <label className={styles.formErrors}>{error.phone}</label>
 
             <label className={styles.label}>Currículum Vitae:</label>
-            <input
-              name="cvFile"
-              onChange={handleChange}
-              type="file"
-              accept=".pdf"
-            />
-
+            <p className={styles.text}>Formato .pdf</p>
+            <div className={styles.fileButton}>
+              <input
+                name="cvFile"
+                onChange={handleChange}
+                type="file"
+                accept=".pdf"
+              />
+            </div>
             <label className={styles.formErrors}>{error.cvFile}</label>
 
             <label className={styles.label}>Certificado de Idioma:</label>
-            <input
-              name="languageFile"
-              onChange={handleChange}
-              type="file"
-              accept=".pdf"
-            />
-
+            <p className={styles.text}>(Opcional)</p>
+            <p className={styles.text}>Formato .pdf</p>
+            <div className={styles.fileButton}>
+              <input
+                name="languageFile"
+                onChange={handleChange}
+                type="file"
+                accept=".pdf"
+              />
+            </div>
             <label className={styles.formErrors}>{error.languageFile}</label>
             <button type="submit" className={styles.buttonSubmit}>
               {" "}

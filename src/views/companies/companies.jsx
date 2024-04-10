@@ -260,7 +260,12 @@ const Companies = () => {
             <label className={styles.formErrors}>{error.companyName}</label>
 
             <label className={styles.label}>Rubro:</label>
-            <input name="category" onChange={handleChange} type="text" />
+            <input
+              name="category"
+              onChange={handleChange}
+              type="text"
+              placeholder="Ej: Gastronomía"
+            />
             <label className={styles.formErrors}>{error.category}</label>
 
             <label className={styles.label}>Correo electrónico:</label>
@@ -277,7 +282,7 @@ const Companies = () => {
               name="phone"
               onChange={handleChange}
               type="text"
-              placeholder="Teléfono de contacto (opcional)"
+              placeholder="(Opcional) Teléfono de contacto"
             />
             <label className={styles.formErrors}>{error.phone}</label>
             <button type="submit" className={styles.button}>

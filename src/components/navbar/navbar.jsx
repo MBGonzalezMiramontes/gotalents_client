@@ -9,19 +9,19 @@ const NavBar = () => {
     <div className={styles.container}>
       <div className={styles.linkContainer}>
         <Link to="/" className={styles.link}>
-          <div className={styles.iconConteiner}>
-          <img src={logo} alt="logo" className={styles.logo} />
+          <div className={styles.iconContainer}>
+            <img src={logo} alt="logo" className={styles.logo} />
           </div>
           Home
         </Link>
         <Link to="/companies" className={styles.link}>
-          <div className={styles.iconConteiner}>
+          <div className={styles.iconContainer}>
             <Building className={styles.icon} />
           </div>
           Companies
         </Link>
         <Link to="/talents" className={styles.link}>
-          <div className={styles.iconConteiner}>
+          <div className={styles.iconContainer}>
             <Pen className={styles.icon} />
           </div>
           Talents

@@ -35,7 +35,7 @@ const Home = () => {
             className={styles.woman_image}
           />
           <h2 className={styles.subtitle_blue}>Hire</h2>
-          <p className={styles.paragraph}>
+          <p className={styles.paragraphCard}>
             Connect with passionate professionals to meet the needs of your
             company.
           </p>
@@ -49,7 +49,7 @@ const Home = () => {
         <div className={styles.card}>
           <img src={man_image} alt="man_image" className={styles.man_image} />
           <h2 className={styles.subtitle_orange}>Apply</h2>
-          <p className={styles.paragraph}>
+          <p className={styles.paragraphCard}>
             Be part of a group of like-minded people that will propel your
             career towards success.
           </p>
