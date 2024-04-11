@@ -112,33 +112,26 @@
   margin-top: 0px;
 }
 
-.blueButton {
+.blueButton,
+.orangeButton {
   top: 90%;
-  background-color: #27b2f5;
   color: white;
   border: none;
-  width: 130px;
+  width: 150px;
   border-radius: 60px;
   padding-top: 20px;
   padding-bottom: 20px;
   transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
   cursor: pointer; /* Cambio de cursor a mano */
+}
+.blueButton {
+  background-color: #27b2f5;
 }
 .blueButton:hover {
   background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
 }
-
 .orangeButton {
-  top: 90%;
   background-color: #f49728;
-  color: white;
-  border: none;
-  width: 130px;
-  border-radius: 60px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
-  cursor: pointer; /* Cambio de cursor a mano */
 }
 .orangeButton:hover {
   background-color: #d88300; /* Color de fondo al pasar el mouse */
@@ -167,7 +160,7 @@
 @media screen and (max-width: 768px) {
   .container {
     height: auto;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
   }
 
   .top_image {
@@ -220,7 +213,6 @@
   }
   .blueButton,
   .orangeButton {
-    width: auto;
     margin-top: 20px;
     position: relative;
     width: 150px;

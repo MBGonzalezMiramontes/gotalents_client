@@ -50,11 +50,13 @@
 
 .cardsContainer {
   display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
   justify-content: center;
+  margin-bottom: 370px;
 }
 
-.card1 {
+.card1,
+.card2,
+.card3 {
   color: white;
   position: relative;
   display: flex; /* Establece el contenedor de enlaces como un flex container */
@@ -66,46 +68,27 @@
   background-color: #27b2f5;
   width: 300px;
   height: 150px;
-  position: absolute; /* Establece la posición absoluta para la imagen */
-  z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
-  top: 115%;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card2 {
-  color: white;
-  position: relative;
-  display: flex; /* Establece el contenedor de enlaces como un flex container */
-  flex-direction: column;
-  justify-content: center; /* Centrar horizontalmente */
-  border: 3px solid #52c6fe;
-  border-radius: 30px;
-  padding: 30px;
-  background-color: #27b2f5;
-  width: 300px;
-  height: 150px;
-  margin-top: 160px;
-  margin-right: 500px;
   box-shadow: 0px 7.5px 15px rgba(0, 0, 0, 0.2);
 }
 
+.card1 {
+  position: absolute; /* Establece la posición absoluta para la imagen */
+  z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  top: 115%;
+}
+
+.card2 {
+  position: absolute;
+  margin-top: 160px;
+  margin-right: 500px;
+}
+
 .card3 {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: 3px solid #52c6fe;
-  border-radius: 30px;
-  padding: 30px;
-  background-color: #27b2f5;
-  width: 300px;
-  height: 150px;
   position: absolute;
   z-index: 1;
   margin-top: 185px;
   margin-left: 500px;
   margin-bottom: 100px;
-  box-shadow: 0px 7.5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
@@ -118,7 +101,7 @@
 }
 
 .secondContainer {
-  margin-left: 107px;
+  margin-left: 100px;
   background-color: white;
   clip-path: path(
     "M0,50 Q320,150 640,50 Q960,-50 1280,50 Q1600,150 1920,50 L1920,3500 L0,3500 Z"
@@ -126,6 +109,7 @@
 }
 
 .secondTitle {
+  padding-right: 100px;
   color: #7e7f84;
   font-size: 46pt;
   font-weight: 400;
@@ -263,4 +247,137 @@ input[type="text"]:focus {
 }
 .button:hover {
   background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
+}
+
+@media screen and (max-width: 1024px) {
+  .cardsContainer{margin-top: 20px;
+  margin-bottom: 650px;}
+  .card1,
+  .card2,
+  .card3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .card2 {
+    margin-top: 0;
+  }
+  .card3 {
+    margin-top: 260px;
+  }
+  .card1 {
+    margin-top: 530px;
+  }
+
+  .rectangle {
+    width: auto;
+    height: 250px;
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainContainer {
+    margin-top: 90px;
+  }
+
+  .title_body_container {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .title,
+  .secondTitle,
+  .thirdTitle {
+    padding-right: 70px;
+    font-size: 44pt;
+    margin-bottom: 10px;
+  }
+
+  .cardsContainer {
+    margin-bottom: 620px;
+  }
+
+  .card1,
+  .card2,
+  .card3 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .card2 {
+    margin-top: 0;
+  }
+  .card3 {
+    margin-top: 260px;
+  }
+  .card1 {
+    margin-top: 400px;
+  }
+
+  .secondContainer {
+    margin-left: 0;
+  }
+
+  .secondTitle,
+  .thirdTitle {
+    margin-left: 0 !important;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .paragraphAdjustment {
+    margin-left: 0 !important;
+  }
+
+  .tableContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 0 !important;
+  }
+
+  .table {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .thirdContainer {
+    height: auto;
+    padding-bottom: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .rectangle {
+    width: auto;
+    height: 250px;
+    margin-left: 0 !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .fourthContainer {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .label {
+    margin-left: 0 !important;
+  }
+
+  input[type="text"] {
+    margin-left: 0 !important;
+  }
+
+  .formErrors {
+    margin-left: 0 !important;
+  }
+
+  .button {
+    margin-left: 0 !important;
+  }
 }

@@ -111,7 +111,7 @@ const Companies = () => {
       <div className={`${styles.secondContainer} ${styles.wavyBorder}`}>
         <div className={styles.title_body_container}>
           <h2 className={styles.secondTitle}>
-            Why choose our <br />
+            Why choose our
             <span className={styles.bold}> recruitment services? </span>
           </h2>
           <p className={styles.paragraphAdjustment}>
