@@ -11,11 +11,7 @@ const Home = () => {
       <img src={top_image} alt="top_image" className={styles.top_image} />
       <div className={styles.title_body_container}>
         <h1 className={styles.title_orange}>
-          Remote horizons,
-          <br />
-          global talents,
-          <br />
-          infinite potential
+          Remote horizons, global talents, infinite potential
         </h1>
         <p className={styles.paragraph}>
           We are dedicated to identifying and recruiting top talent to meet the

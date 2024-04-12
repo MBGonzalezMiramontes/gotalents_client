@@ -11,211 +11,448 @@
   font-weight: bold;
   font-style: normal;
 }
-
-.container {
-  background-color: #f1f1f1;
-  height: 1100px;
-}
-
-.top_image {
-  width: 100%;
-  height: auto; /* Esto mantiene la relación de aspecto */
-  margin-bottom: 50px;
-}
-
-.title_body_container {
-  display: flex; /* Establece el contenedor de enlaces como un flex container */
-  flex-direction: column;
-  justify-content: center; /* Centrar horizontalmente */
-  margin-left: 198px;
-  margin-right: 185px;
-}
-
-.paragraph,
-.paragraphCard {
-  font-family: "Sansation Regular", sans-serif;
-  color: #7e7f84;
-}
-
-.columns {
-  display: flex; /* Establece el contenedor como un flex container */
-  flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
-  justify-content: center;
-}
-
-.card {
-  position: relative;
-  display: flex; /* Establece el contenedor de enlaces como un flex container */
-  flex-direction: column;
-  justify-content: center; /* Centrar horizontalmente */
-  border: 2px solid white;
-  border-radius: 30px;
-  padding-top: 20px;
-  padding-left: 30px; /* Espacio interno de la tarjeta */
-  padding-right: 166px;
-  margin: 20px; /* Agrega margen entre las tarjetas */
-  background-color: #f1f1f1;
-  width: 285px;
-  height: 300px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.woman_image {
-  position: absolute; /* Establece la posición absoluta para la imagen */
-  bottom: 0%;
-  left: 67%; /* Posiciona la imagen en la parte izquierda del card */
-  width: auto; /* Ancho de la imagen igual al ancho del card */
-  height: 100%; /* Altura de la imagen igual a la altura del card */
-  z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
-}
-
-.man_image {
-  position: absolute; /* Establece la posición absoluta para la imagen */
-  bottom: 0%;
-  left: 59%; /* Posiciona la imagen en la parte izquierda del card */
-  width: auto; /* Ancho de la imagen igual al ancho del card */
-  height: 110%; /* Altura de la imagen igual a la altura del card */
-  z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
-}
-
-.title_orange {
-  color: #f49728;
-  font-size: 56pt;
-  font-weight: 400;
-  margin-bottom: 20px;
-  margin-top: 0px;
-}
-
-.featurdOrange {
-  font-family: "Sansation Bold", sans-serif;
-  color: #f49728;
-  margin-top: 0px;
-}
-
-.subtitle_orange,
-.subtitle_blue {
-  font-size: 46pt;
-  font-weight: 400;
-  margin-bottom: 20px;
-  margin-top: 0px;
-}
-.subtitle_orange {
-  color: #f49728;
-}
-.subtitle_blue {
-  color: #27b2f5;
-}
-
-.featurdBlue {
-  font-family: "Sansation Bold", sans-serif;
-  color: #27b2f5;
-  margin-top: 0px;
-}
-
-.blueButton,
-.orangeButton {
-  top: 90%;
-  color: white;
-  border: none;
-  width: 150px;
-  border-radius: 60px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
-  cursor: pointer; /* Cambio de cursor a mano */
-}
-.blueButton {
-  background-color: #27b2f5;
-}
-.blueButton:hover {
-  background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
-}
-.orangeButton {
-  background-color: #f49728;
-}
-.orangeButton:hover {
-  background-color: #d88300; /* Color de fondo al pasar el mouse */
-}
-
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .container {
-    height: auto;
-    padding-bottom: 100px;
+    background-color: #f1f1f1;
+    padding-bottom: 50px;
   }
 
+  .top_image {
+    width: 100%;
+    height: auto; /* Esto mantiene la relación de aspecto */
+    margin-bottom: 50px;
+  }
+
+  .title_body_container {
+    display: flex; /* Establece el contenedor de enlaces como un flex container */
+    flex-direction: column;
+    justify-content: center; /* Centrar horizontalmente */
+    margin-left: 198px;
+    margin-right: 185px;
+  }
+
+  .paragraph,
   .paragraphCard {
     font-family: "Sansation Regular", sans-serif;
     color: #7e7f84;
-    padding-right: 0px;
+  }
+
+  .columns {
+    display: flex; /* Establece el contenedor como un flex container */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
+    justify-content: center;
+    margin-left: 120px;
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 166px;
+    margin: 45px;
+    background-color: #f1f1f1;
+    width: 285px;
+    height: 300px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .woman_image {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    bottom: 0%;
+    left: 67%; /* Posiciona la imagen en la parte izquierda del card */
+    width: auto; /* Ancho de la imagen igual al ancho del card */
+    height: 100%; /* Altura de la imagen igual a la altura del card */
+    z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  }
+
+  .man_image {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    bottom: 0%;
+    left: 59%; /* Posiciona la imagen en la parte izquierda del card */
+    width: auto; /* Ancho de la imagen igual al ancho del card */
+    height: 110%; /* Altura de la imagen igual a la altura del card */
+    z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  }
+
+  .title_orange {
+    color: #f49728;
+    font-size: 56pt;
+    font-weight: 400;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    padding-right: 200px;
+    line-height: 110%;
+  }
+
+  .featurdOrange {
+    font-family: "Sansation Bold", sans-serif;
+    color: #f49728;
+    margin-top: 0px;
+  }
+
+  .subtitle_orange,
+  .subtitle_blue {
+    font-size: 46pt;
+    font-weight: 400;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+  .subtitle_orange {
+    color: #f49728;
+    border-bottom: 4px solid #f49728;
+    width: 60px;
+    padding-bottom: 20px;
+  }
+  .subtitle_blue {
+    color: #27b2f5;
+    border-bottom: 4px solid #27b2f5;
+    width: 60px;
+    padding-bottom: 20px;
+  }
+
+  .featurdBlue {
+    font-family: "Sansation Bold", sans-serif;
+    color: #27b2f5;
+    margin-top: 0px;
+  }
+
+  .blueButton,
+  .orangeButton {
+    top: 90%;
+    color: white;
+    border: none;
+    width: 150px;
+    border-radius: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+    cursor: pointer; /* Cambio de cursor a mano */
+  }
+  .blueButton {
+    background-color: #27b2f5;
+  }
+  .blueButton:hover {
+    background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
+  }
+  .orangeButton {
+    background-color: #f49728;
+  }
+  .orangeButton:hover {
+    background-color: #d88300; /* Color de fondo al pasar el mouse */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    background-color: #f1f1f1;
+    padding-bottom: 50px;
+  }
+
+  .top_image {
+    width: 100%;
+    height: auto; /* Esto mantiene la relación de aspecto */
+    margin-bottom: 50px;
+  }
+
+  .title_body_container {
+    display: flex; /* Establece el contenedor de enlaces como un flex container */
+    flex-direction: column;
+    justify-content: center; /* Centrar horizontalmente */
+    margin-left: 198px;
+    margin-right: 185px;
+  }
+  
+  /* .container {
+    background-color: #f1f1f1;
+    padding-bottom: 50px;
+  }
+  
+
+  .top_image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+  }
+
+  .title_body_container {
+    display: flex;
+    justify-content: center;
+    margin-right: 32px;
+    margin-left: 148px;
+  } */
+
+  .paragraph,
+  .paragraphCard {
+    font-family: "Sansation Regular", sans-serif;
+    color: #7e7f84;
+    padding-right: 40px;
+  }
+
+  .columns {
+    display: flex; /* Establece el contenedor como un flex container */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
+    justify-content: center;
+    margin-left: 120px;
+  }
+
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 166px;
+    margin: 20px;
+    background-color: #f1f1f1;
+    width: 400px;
+    height: 421px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .woman_image {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    bottom: 0%;
+    left: 65%; /* Posiciona la imagen en la parte izquierda del card */
+    width: auto; /* Ancho de la imagen igual al ancho del card */
+    height: 100%; /* Altura de la imagen igual a la altura del card */
+    z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  }
+
+  .man_image {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    bottom: 0%;
+    left: 50%; /* Posiciona la imagen en la parte izquierda del card */
+    width: auto; /* Ancho de la imagen igual al ancho del card */
+    height: 110%; /* Altura de la imagen igual a la altura del card */
+    z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  }
+
+  .title_orange {
+    color: #f49728;
+    margin-top: 0px;
+    line-height: 110%;
   }
 
   .title_orange,
   .subtitle_orange,
   .subtitle_blue {
     font-size: 44pt;
+    font-weight: 400;
     margin-bottom: 10px;
+  }
+
+  .subtitle_orange,
+  .subtitle_blue {
+    font-size: 36pt;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  .subtitle_orange {
+    color: #f49728;
+    border-bottom: 4px solid #f49728;
+    width: 60px;
+    padding-bottom: 20px;
+  }
+  .subtitle_blue {
+    color: #27b2f5;
+    border-bottom: 4px solid #27b2f5;
+    width: 60px;
+    padding-bottom: 20px;
+  }
+
+  .featurdOrange {
+    font-family: "Sansation Bold", sans-serif;
+    color: #f49728;
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
+
+  .featurdBlue {
+    font-family: "Sansation Bold", sans-serif;
+    color: #27b2f5;
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
+
+  .blueButton,
+  .orangeButton {
+    top: 90%;
+    color: white;
+    border: none;
+    width: 150px;
+    border-radius: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+    cursor: pointer; /* Cambio de cursor a mano */
+  }
+  .blueButton {
+    background-color: #27b2f5;
+  }
+  .blueButton:hover {
+    background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
+  }
+  .orangeButton {
+    background-color: #f49728;
+  }
+  .orangeButton:hover {
+    background-color: #d88300; /* Color de fondo al pasar el mouse */
   }
 }
 
 @media screen and (max-width: 768px) {
   .container {
-    height: auto;
+    background-color: #f1f1f1;
     padding-bottom: 50px;
   }
 
   .top_image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
     margin-top: 90px;
-    margin-bottom: 20px;
   }
 
   .title_body_container {
-    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 7%;
+  }
+
+  .paragraph,
+  .paragraphCard {
+    font-family: "Sansation Regular", sans-serif;
+    color: #7e7f84;
+    padding-right: 40px;
+    margin-right: 5%;
+  }
+
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* margin-left: 120px; */
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    margin: 20px;
+    background-color: #f1f1f1;
+    width: 60%;
+    height: auto;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .woman_image {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    bottom: 0%;
+    left: 60%; /* Posiciona la imagen en la parte izquierda del card */
+    width: 40%; /* Ancho de la imagen igual al ancho del card */
+    height: auto; /* Altura de la imagen igual a la altura del card */
+    z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  }
+
+  .man_image {
+    position: absolute; /* Establece la posición absoluta para la imagen */
+    bottom: 0%;
+    left: 50%; /* Posiciona la imagen en la parte izquierda del card */
+    width: 55%; /* Ancho de la imagen igual al ancho del card */
+    height: auto; /* Altura de la imagen igual a la altura del card */
+    z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
+  }
+
+  .title_orange {
+    color: #f49728;
+    margin-top: 0px;
+    line-height: 110%;
+    font-size: 28pt;
   }
 
   .title_orange,
   .subtitle_orange,
   .subtitle_blue {
-    font-size: 32pt;
+    font-weight: 400;
     margin-bottom: 10px;
   }
 
-  .paragraph {
+  .subtitle_orange,
+  .subtitle_blue {
+    font-size: 26pt;
+    margin-bottom: 0px;
+    margin-top: 0px;
     margin-bottom: 20px;
   }
-
-  .columns {
-    flex-direction: column;
-    align-items: center;
+  .subtitle_orange {
+    color: #f49728;
+    border-bottom: 3px solid #f49728;
+    width: 40px;
+    padding-bottom: 20px;
+  }
+  .subtitle_blue {
+    color: #27b2f5;
+    border-bottom: 3px solid #27b2f5;
+    width: 40px;
+    padding-bottom: 20px;
   }
 
-  .card {
-    width: 85%;
-    margin: 20px auto;
-    padding: 20px;
+  .featurdOrange {
+    font-family: "Sansation Bold", sans-serif;
+    color: #f49728;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    padding-right: 20%;
   }
 
-  .woman_image,
-  .man_image {
-    left: 55%; /* Posiciona la imagen en la parte izquierda del card */
-    width: auto; /* Ancho de la imagen igual al ancho del card */
-    height: 100%; /* Altura de la imagen igual a la altura del card */
-  }
-
-  .paragraphCard {
-    font-family: "Sansation Regular", sans-serif;
-    color: #7e7f84;
-    padding-right: 230px;
-  }
-
-  .featurdOrange,
   .featurdBlue {
-    padding-right: 230px;
+    font-family: "Sansation Bold", sans-serif;
+    color: #27b2f5;
+    margin-top: 0px;
+    margin-bottom: 40px;
+    padding-right: 20%;
   }
+
   .blueButton,
   .orangeButton {
-    margin-top: 20px;
-    position: relative;
-    width: 150px;
-    top: auto;
+    top: 90%;
+    color: white;
+    border: none;
+    width: 60%;
+    border-radius: 60px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: background-color 0.3s, cursor 0.3s; /* Transición de color y cursor */
+    cursor: pointer; /* Cambio de cursor a mano */
+  }
+  .blueButton {
+    background-color: #27b2f5;
+  }
+  .blueButton:hover {
+    background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
+  }
+  .orangeButton {
+    background-color: #f49728;
+  }
+  .orangeButton:hover {
+    background-color: #d88300; /* Color de fondo al pasar el mouse */
   }
 }
