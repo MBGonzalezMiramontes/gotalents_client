@@ -98,22 +98,16 @@
 
   .subtitle_orange,
   .subtitle_blue {
-    font-size: 46pt;
+    font-size: 44pt;
     font-weight: 400;
     margin-bottom: 0px;
     margin-top: 0px;
   }
   .subtitle_orange {
     color: #f49728;
-    border-bottom: 4px solid #f49728;
-    width: 60px;
-    padding-bottom: 20px;
   }
   .subtitle_blue {
     color: #27b2f5;
-    border-bottom: 4px solid #27b2f5;
-    width: 60px;
-    padding-bottom: 20px;
   }
 
   .featurdBlue {
@@ -156,7 +150,7 @@
 
   .top_image {
     width: 100%;
-    height: auto; /* Esto mantiene la relación de aspecto */
+    height: auto;
     margin-bottom: 50px;
   }
 
@@ -167,25 +161,6 @@
     margin-left: 198px;
     margin-right: 185px;
   }
-  
-  /* .container {
-    background-color: #f1f1f1;
-    padding-bottom: 50px;
-  }
-  
-
-  .top_image {
-    width: 100%;
-    height: auto;
-    margin-bottom: 50px;
-  }
-
-  .title_body_container {
-    display: flex;
-    justify-content: center;
-    margin-right: 32px;
-    margin-left: 148px;
-  } */
 
   .paragraph,
   .paragraphCard {
@@ -195,12 +170,10 @@
   }
 
   .columns {
-    display: flex; /* Establece el contenedor como un flex container */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
+    display: flex; 
+    flex-wrap: wrap; 
     justify-content: center;
-    margin-left: 120px;
   }
-
 
   .card {
     position: relative;
@@ -210,18 +183,20 @@
     border: 2px solid white;
     border-radius: 30px;
     padding-left: 30px;
-    padding-right: 166px;
+    padding-right: 190px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     margin: 20px;
     background-color: #f1f1f1;
-    width: 400px;
-    height: 421px;
+    width: 300px;
+    height: 321px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   }
 
   .woman_image {
     position: absolute; /* Establece la posición absoluta para la imagen */
     bottom: 0%;
-    left: 65%; /* Posiciona la imagen en la parte izquierda del card */
+    left: 70%; /* Posiciona la imagen en la parte izquierda del card */
     width: auto; /* Ancho de la imagen igual al ancho del card */
     height: 100%; /* Altura de la imagen igual a la altura del card */
     z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
@@ -230,7 +205,7 @@
   .man_image {
     position: absolute; /* Establece la posición absoluta para la imagen */
     bottom: 0%;
-    left: 50%; /* Posiciona la imagen en la parte izquierda del card */
+    left: 60%; /* Posiciona la imagen en la parte izquierda del card */
     width: auto; /* Ancho de la imagen igual al ancho del card */
     height: 110%; /* Altura de la imagen igual a la altura del card */
     z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
@@ -259,15 +234,12 @@
   }
   .subtitle_orange {
     color: #f49728;
-    border-bottom: 4px solid #f49728;
-    width: 60px;
-    padding-bottom: 20px;
+  
+    padding-bottom: 5px;
   }
   .subtitle_blue {
     color: #27b2f5;
-    border-bottom: 4px solid #27b2f5;
-    width: 60px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
 
   .featurdOrange {
@@ -404,15 +376,10 @@
   }
   .subtitle_orange {
     color: #f49728;
-    border-bottom: 3px solid #f49728;
-    width: 40px;
-    padding-bottom: 20px;
   }
   .subtitle_blue {
     color: #27b2f5;
-    border-bottom: 3px solid #27b2f5;
-    width: 40px;
-    padding-bottom: 20px;
+ 
   }
 
   .featurdOrange {
