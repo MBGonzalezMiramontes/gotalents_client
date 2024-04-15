@@ -4,6 +4,7 @@ import styles from "./companies.module.css";
 import { useDispatch } from "react-redux";
 import { createCompany } from "../../redux/actions/actions";
 import validate from "./validation/validation";
+import Switch from "../../components/switch/switch";
 
 const Companies = () => {
   const dispatch = useDispatch();
@@ -61,7 +62,7 @@ const Companies = () => {
   return (
     <div className={styles.mainContainer}>
       <img src={top_image} alt="top_image" className={styles.top_image} />
-
+      <Switch />{" "}
       <div className={styles.firstContainer}>
         <div className={styles.title_body_container}>
           <h1 className={styles.title}>Recruitment services</h1>
@@ -107,7 +108,6 @@ const Companies = () => {
           </div>
         </div>
       </div>
-
       <div className={`${styles.secondContainer} ${styles.wavyBorder}`}>
         <div className={styles.title_body_container}>
           <h2 className={styles.secondTitle}>

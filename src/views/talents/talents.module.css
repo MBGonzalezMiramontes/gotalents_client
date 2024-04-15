@@ -198,6 +198,7 @@
 
   .label {
     margin-bottom: 8px;
+    margin-left: -100px;
     font-weight: bold;
     font-family: "Sansation Regular", sans-serif;
     color: #7e7f84;
@@ -514,8 +515,8 @@
   .top_image {
     width: 100%;
     height: auto;
-    margin-bottom: 0px;
-    margin-top: 90px;
+    margin-bottom: 20px;
+    margin-top: 73px;
   }
 
   .container {
@@ -528,13 +529,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 7%;
+    padding-left: 7%;
+    padding-right: 7%;
   }
 
   .title {
+    position: relative;
+    z-index: 1;
     color: #f49728;
     margin-bottom: 5px;
-    margin-top: 25px;
+    margin-top: 0px;
     font-size: 28pt;
     font-weight: 400;
   }
@@ -548,7 +552,7 @@
 
   .white_logo {
     position: absolute;
-    top: 420px;
+    top: 440px;
     width: 80%;
   }
 
@@ -646,6 +650,7 @@
   }
 
   .thirdContainer {
+    background-color: white;
   }
 
   .thirdTitle {
@@ -734,6 +739,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 20px;
+    margin-bottom: 100px;
     transition: background-color 0.3s, cursor 0.3s;
     cursor: pointer;
   }

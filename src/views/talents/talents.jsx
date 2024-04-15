@@ -7,6 +7,7 @@ import coworkers_image from "../../images/coworkers.png";
 import white_logo from "../../images/GoTalents-Logo-16.png";
 import { createTalent } from "../../redux/actions/actions";
 import validate from "./validation/validation";
+import Switch from "../../components/switch/switch";
 
 const Talents = () => {
   const dispatch = useDispatch();
@@ -41,13 +42,13 @@ const Talents = () => {
       ...talent,
       [name]: value,
     });
-  
+
     if (name === "cvFile") {
       setCvFile(event.target.files[0]);
     } else if (name === "languageFile") {
       setLanguageFile(event.target.files[0]);
     }
-  
+
     // Llama a validate después de que se actualiza el estado del talent y el error
     validate({ ...talent, [name]: value }, name, error, setError);
   };
@@ -79,7 +80,6 @@ const Talents = () => {
         .then(() => {
           setAlertMessage("Haz enviado tu solicitud correctamente.");
           setShowAlert(true);
-          
         })
         .catch((error) => {
           console.error("Ups, no hemos podido enviar tu solicitud:", error);
@@ -95,6 +95,7 @@ const Talents = () => {
   return (
     <div className={styles.container}>
       <img src={top_image} alt="top_image" className={styles.top_image} />
+      <Switch />{" "}
       <div className={styles.title_body_container}>
         <h1 className={styles.title}>Work with us</h1>
         <p className={styles.paragraph}>
@@ -182,7 +183,6 @@ const Talents = () => {
           </div>
         </div>
       </div>
-
       <div className={styles.thirdContainer}>
         <div className={styles.featuredContainer}>
           <div className={styles.title_body_container}>

@@ -1,0 +1,117 @@
+@media screen and (min-width: 1024px) {
+  .switchContainer {
+    margin-left: 198px;
+    margin-bottom: 10px;
+    margin-right: 185px;
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+  }
+
+  .switchInput {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  .labelSwitch {
+    display: block;
+    width: 70px; /* Ajusta el ancho según tus necesidades */
+    height: 26px; /* Ajusta la altura según tus necesidades */
+    line-height: 26px; /* Centra verticalmente el texto */
+    background-color: #27b2f5; /* Cambia el color según tu esquema de colores */
+    border-radius: 30px; /* Ajusta el radio de borde según tus necesidades */
+    position: relative;
+    cursor: pointer;
+    text-align: center; /* Centra horizontalmente el texto */
+    color: #fff; /* Cambia el color del texto según tu esquema de colores */
+    transition: background-color 0.3s ease; /* Agrega una transición suave */
+    font-size: 10pt;
+  }
+
+  .labelSwitch:hover {
+    background-color: #27b2f5; /* Cambia el color de fondo al pasar el mouse */
+  }
+
+  .switchInput:checked + .labelSwitch {
+    background-color: #e08000; /* Cambia el color cuando el switch está activado */
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .switchContainer {
+    margin-left: 198px;
+    margin-bottom: 10px;
+    margin-right: 185px;
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+  }
+
+  .switchInput {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  .labelSwitch {
+    display: block;
+    width: 70px; /* Ajusta el ancho según tus necesidades */
+    height: 26px; /* Ajusta la altura según tus necesidades */
+    line-height: 26px; /* Centra verticalmente el texto */
+    background-color: #27b2f5; /* Cambia el color según tu esquema de colores */
+    border-radius: 30px; /* Ajusta el radio de borde según tus necesidades */
+    position: relative;
+    cursor: pointer;
+    text-align: center; /* Centra horizontalmente el texto */
+    color: #fff; /* Cambia el color del texto según tu esquema de colores */
+    transition: background-color 0.3s ease; /* Agrega una transición suave */
+    font-size: 10pt;
+  }
+
+  .labelSwitch:hover {
+    background-color: #27b2f5; /* Cambia el color de fondo al pasar el mouse */
+  }
+
+  .switchInput:checked + .labelSwitch {
+    background-color: #e08000; /* Cambia el color cuando el switch está activado */
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .switchContainer {
+    margin-left: 198px;
+    margin-bottom: 20px;
+    margin-right: 7%;
+    display: flex;
+
+    justify-content: flex-end; /* Alinea el contenido a la derecha */
+  }
+
+  .switchInput {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+
+  .labelSwitch {
+    display: block;
+    width: 65px; /* Ajusta el ancho según tus necesidades */
+    height: 26px; /* Ajusta la altura según tus necesidades */
+    line-height: 28px; /* Centra verticalmente el texto */
+    background-color: #27b2f5; /* Cambia el color según tu esquema de colores */
+    border-radius: 30px; /* Ajusta el radio de borde según tus necesidades */
+    position: relative;
+    cursor: pointer;
+    text-align: center; /* Centra horizontalmente el texto */
+    color: #fff; /* Cambia el color del texto según tu esquema de colores */
+    transition: background-color 0.3s ease; /* Agrega una transición suave */
+    font-size: 8pt;
+  }
+
+  .labelSwitch:hover {
+    background-color: #27b2f5; /* Cambia el color de fondo al pasar el mouse */
+  }
+
+  .switchInput:checked + .labelSwitch {
+    background-color: #e08000; /* Cambia el color cuando el switch está activado */
+  }
+}

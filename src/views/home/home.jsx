@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./home.module.css";
 import top_image from "../../images/top_home.png";
 import woman_image from "../../images/mujer.png";
 import man_image from "../../images/hombre.png";
 import { Link } from "react-router-dom";
+import Switch from "../../components/switch/switch";
 
 const Home = () => {
+  const [isSpanish, setIsSpanish] = useState(false);
+
+  const handleChangeLanguage = () => {
+    setIsSpanish(!isSpanish);
+  };
+
   return (
     <div className={styles.container}>
       <img src={top_image} alt="top_image" className={styles.top_image} />
+      
+      <Switch />{" "}
+      {/* <div className={styles.switchContainer}>
+        <input
+          id="toggle_switch"
+          name="toggle_switch"
+          type="checkbox"
+          checked={isSpanish}
+          onChange={handleChangeLanguage}
+          className={styles.switchInput}
+        />
+        <label className={styles.labelSwitch} htmlFor="toggle_switch">
+          {isSpanish ? "English" : "Español"}
+        </label>
+      </div> */}
+
       <div className={styles.title_body_container}>
         <h1 className={styles.title_orange}>
           Remote horizons, global talents, infinite potential
