@@ -11,7 +11,7 @@
   font-weight: bold;
   font-style: normal;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .top_image {
     width: 100%;
     height: auto;
@@ -33,6 +33,8 @@
     font-weight: 400;
     margin-bottom: 20px;
     margin-top: 0px;
+    padding-right: 300px;
+    line-height: 110%;
   }
 
   .title_body_container {
@@ -74,7 +76,7 @@
   .card1 {
     position: absolute; /* Establece la posición absoluta para la imagen */
     z-index: 1; /* Asegura que la imagen esté por encima del contenido del card */
-    top: 115%;
+    top: 132%;
   }
 
   .card2 {
@@ -131,12 +133,12 @@
   .tableContainer {
     margin-left: -105px;
     margin-top: 40px;
+    margin-bottom: -20px;
   }
 
   .table {
     border-collapse: collapse;
     color: #7e7f84;
-    margin-bottom: 80px;
     border-radius: 25px;
     background-color: white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
@@ -164,6 +166,7 @@
   }
 
   .thirdContainer {
+    margin-top:100px;
     background-color: #27b2f5;
     border-top-right-radius: 20%;
     border-bottom-right-radius: 20%;
@@ -171,7 +174,7 @@
 
   .thirdTitle {
     color: white;
-    font-size: 40pt;
+    font-size: 46pt;
     font-weight: 400;
     margin-bottom: 20px;
     margin-top: 80px;
@@ -332,6 +335,7 @@
     );
     padding-left: 100px;
     padding-right: 100px;
+    padding-top: 20%;
   }
 
   .secondTitle {
@@ -339,7 +343,6 @@
     font-size: 36pt;
     font-weight: 400;
     margin-bottom: 20px;
-    margin-top: 170px;
   }
 
   .bold {
@@ -358,7 +361,7 @@
   .table {
     border-collapse: collapse;
     color: #7e7f84;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     border-radius: 25px;
     background-color: white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
@@ -387,9 +390,10 @@
   }
 
   .thirdContainer {
+    margin-top: 70px;
     margin-left: -100px;
     margin-right: -100px;
-    margin-bottom: -70px;
+    margin-bottom: 80px;
     padding-right: 100px; /* revisar */
     padding-left: 100px;
     background-color: #27b2f5;
@@ -572,12 +576,14 @@
     margin-top: 40px;
     padding-right: 3%;
     padding-left: 3%;
+
   }
 
   .table {
+    width: 100%; 
     border-collapse: collapse;
     color: #7e7f84;
-    margin-bottom: 80px;
+    margin-bottom: -80px;
     border-radius: 25px;
     background-color: white;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
@@ -594,6 +600,7 @@
   .tableHeading,
   .tableContent {
     padding: 10px;
+    width: 90%;
   }
 
   .tableHeading {
@@ -611,6 +618,7 @@
     background-color: #27b2f5;
     padding-left: 7%;
     padding-right: 7%;
+    margin-top: 60px;
   }
 
   .thirdTitle {
@@ -622,7 +630,7 @@
   }
 
   .rectangle {
-    width: 320px;
+    width: auto;
     height: 200px;
     background-color: #7e7f84;
     margin-bottom: 70px;
@@ -633,6 +641,7 @@
     flex-direction: column;
     margin-left: 7%;
     margin-right: 7%;
+    
   }
   .label {
     margin-bottom: 8px;
@@ -679,5 +688,17 @@
   }
   .button:hover {
     background-color: #1a8cc4;
+  }
+}
+
+@media screen and (max-width: 335px) {
+  .table {
+    width: 100%;
+  }
+
+  .tableHeading,
+  .tableContent {
+    font-size: 10px;
+    padding: 5px;
   }
 }

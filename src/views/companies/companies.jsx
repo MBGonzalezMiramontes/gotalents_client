@@ -65,44 +65,36 @@ const Companies = () => {
       <Switch />{" "}
       <div className={styles.firstContainer}>
         <div className={styles.title_body_container}>
-          <h1 className={styles.title}>Recruitment services</h1>
+          <h1 className={styles.title}>Recruitment service range</h1>
           <p className={styles.paragraph}>
-            We understand that every organization is unique and the right
-            workforce can make the difference in business success. <br />
+            We understand that each organization is unique and that the right
+            workforce can make a difference in business success. <br />
             <br />
-            Our dedication to excellence and personalized approach make us the
-            ideal partner to meet your needs of talent and take your
-            organization to the next level.
+            Our commitment is to reduce employment costs while ensuring that you
+            have access to the best talents, allowing you to focus on what truly
+            matters: takin your business forward.
           </p>
 
           <div className={styles.cardsContainer}>
             <div className={styles.card1}>
-              <h2 className={styles.subtitle}>
-                Large scale
-                <br />
-                recruitment
-              </h2>
+              <h2 className={styles.subtitle}>Large-scale recruitment</h2>
               <p className={styles.paragraphCard}>
-                We handle massive hiring processes, guaranteeing efficiency
-                without compromising quality.
+                We handle mass hiring processes, ensuring efficiency without
+                compromising quality.
               </p>
             </div>
             <div className={styles.card2}>
-              <h2 className={styles.subtitle}>
-                Recruiting of
-                <br />
-                specialized talent
-              </h2>
+              <h2 className={styles.subtitle}>Specialized talent hiring</h2>
               <p className={styles.paragraphCard}>
-                We find experts in specific areas to address critical challenges
-                and projects.
+                We locate experts in specific areas to face challenges and
+                critical projects.
               </p>
             </div>
             <div className={styles.card3}>
               <h2 className={styles.subtitle}>Executive recruitment</h2>
               <p className={styles.paragraphCard}>
-                We identify visionary and strategic leaders that will help
-                propel your company towards success.
+                We identify visionary and strategic leaders who will help propel
+                your company towards success.
               </p>
             </div>
           </div>
@@ -115,12 +107,12 @@ const Companies = () => {
             <span className={styles.bold}> recruitment services? </span>
           </h2>
           <p className={styles.paragraphAdjustment}>
-            Hiring qualified staff can be a challenge for companies, especially
-            when it comes to searching for talent in another category.
+            Hiring qualified personnel can be a challenge for companies,
+            especially when it comes to sourcing talent from another country.
             <br />
             <br />
-            Our recruiting team is prepared to find the most suitable people for
-            each position.
+            Our recruitment team is prepared to find the most suitable
+            candidates for each position.
           </p>
 
           <div className={styles.tableContainer}>
@@ -129,14 +121,14 @@ const Companies = () => {
                 <tr className={styles.tableRow}>
                   <td>
                     <p className={styles.tableHeading}>
-                      Access to a wide network of professionals/talent
+                      Access to a broad network of talent
                     </p>
                   </td>
                   <td>
                     <p className={styles.tableContent}>
-                      Extensive database of junior/professional profiles in
-                      various areas, allowing us to find the ideal candidate for
-                      each position.
+                      Extensive database of juniors/professionals in various
+                      areas, allowing us to find the ideal candidate for each
+                      position.
                     </p>
                   </td>
                 </tr>
@@ -149,7 +141,8 @@ const Companies = () => {
                   <td>
                     <p className={styles.tableContent}>
                       Our team handles the entire recruitment process, from the
-                      initial search to the final selection.
+                      initial search to the final selection. Save up to 50% or
+                      more!
                     </p>
                   </td>
                 </tr>
@@ -161,18 +154,18 @@ const Companies = () => {
                   </td>
                   <td>
                     <p className={styles.tableContent}>
-                      Advanced technologies and rigorous evaluation processes to
-                      ensure each candidate not only possesses the necessary
-                      technical skills, but also the ability to adapt to a
-                      constantly changing environment. Presenting them to
-                      companies in record time.
+                      Advanced technologies and rigorous assessment processes to
+                      ensure that each candidate not only possesses the
+                      necessary technical skills but also the ability to adapt
+                      to a constantly changing environment. Presenting them to
+                      companies in record.
                     </p>
                   </td>
                 </tr>
                 <tr className={styles.tableRow}>
                   <td>
                     <p className={styles.tableHeading}>
-                      Long-term Talent Development
+                      Long-term talent development
                     </p>
                   </td>
                   <td>
@@ -184,13 +177,13 @@ const Companies = () => {
                 </tr>
                 <tr className={styles.tableRow}>
                   <td>
-                    <p className={styles.tableHeading}>Advice and support</p>
+                    <p className={styles.tableHeading}>Guidance and support</p>
                   </td>
                   <td>
                     <p className={styles.tableContent}>
-                      We provide advice and support throughout the hiring
+                      We provide guidance and support throughout the hiring
                       process, ensuring that both companies and candidates are
-                      satisfied with the choice and terms of employment.
+                      satisfied with the choice and employment terms.
                     </p>
                   </td>
                 </tr>
@@ -202,21 +195,38 @@ const Companies = () => {
                   </td>
                   <td>
                     <p className={styles.tableContent}>
-                      We ensure utmost discretion and maintain professional
-                      conduct throughout all interactions and engagements.
+                      {/* We ensure utmost discretion and maintain professional
+                      conduct throughout all interactions and engagements. */}
                     </p>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-        </div>
+
+         
+            <h2 className={styles.secondTitle}>
+              Will
+              <span className={styles.bold}> my talenters </span>
+              work exclusively for me?{" "}
+            </h2>
+            <p className={styles.paragraphAdjustment}>
+              Hiring qualified personnel can be a challenge for companies,
+              especially when it comes to sourcing talent from another country.
+              <br />
+              <br />
+              Our recruitment team is prepared to find the most suitable
+              candidates for each position.
+            </p>
+          </div>
+   
 
         <div className={styles.thirdContainer}>
           <div className={styles.title_body_container}>
             <h2 className={styles.thirdTitle}>
-              How does it work our <br />
-              <span className={styles.bold}> process recruitment? </span>
+              How does our <br />
+              <span className={styles.bold}>process recruitment </span>
+              work?{" "}
             </h2>
             <div className={styles.rectangle}></div>
           </div>

@@ -97,10 +97,10 @@ const Talents = () => {
       <img src={top_image} alt="top_image" className={styles.top_image} />
       <Switch />{" "}
       <div className={styles.title_body_container}>
-        <h1 className={styles.title}>Work with us</h1>
+        <h1 className={styles.title}>Where your career soars!</h1>
         <p className={styles.paragraph}>
-          Our personalized treatment and our experience. in the labor market
-          allow us to offer you a quality and efficient service.
+          Our personalized approach and market expertise enable us to provide
+          you with a high-quality and efficient service.
         </p>
 
         <div>
@@ -111,7 +111,7 @@ const Talents = () => {
           />
           <h2 className={styles.secondTitle}>
             Why
-            <span className={styles.bold}> join our team?</span>
+            <span className={styles.bold}> join our family?</span>
           </h2>
 
           <div className={styles.cardsContainer}>
@@ -121,48 +121,47 @@ const Talents = () => {
               </h2>
               <p className={styles.paragraphCard}>
                 Thanks to our extensive network of contacts with companies, we
-                can give you access to vacancies that are not available to the
-                general public nor are they found in traditional job search
-                sites.
+                can provide you access to job openings that are not available to
+                the general public or listed on traditional job search websites.
               </p>
             </div>
             <div className={styles.card}>
-              <h2 className={styles.subtitle}>Specialized advice</h2>
+              <h2 className={styles.subtitle}>Specialized guidance</h2>
               <p className={styles.paragraphCard}>
-                Professional advice to improve your profile and increase the
-                chances of success
+                Professional guidance to enhance your profile and increase your
+                chances of success.
               </p>
             </div>
             <div className={styles.card}>
               <h2 className={styles.subtitle}>Greater visibility</h2>
               <p className={styles.paragraphCard}>
-                Your profile will be presented in a professional manner to
-                employing companies. This will increase your visibility and will
-                give you a competitive advantage against other candidates.
+                Your profile will be professionally presented to hiring
+                companies, enhancing your visibility and providing you with a
+                competitive edge over other candidates.{" "}
               </p>
             </div>
             <div className={styles.card}>
-              <h2 className={styles.subtitle}>Save of time and effort</h2>
+              <h2 className={styles.subtitle}>Time and effort savings</h2>
               <p className={styles.paragraphCard}>
-                We take care of looking for opportunities jobs that fit your
+                We take care of finding job opportunities that match your
                 profile, saving you time and effort in the process.
               </p>
             </div>
             <div className={styles.card}>
               <h2 className={styles.subtitle}>Confidentiality</h2>
               <p className={styles.paragraphCard}>
-                We respect your privacy at all times. Your personal and
-                professional information will be treated with the utmost
-                discretion.
+                We respect your privacy and confidentiality at all times. Your
+                personal and professional information will be treated with the
+                utmost discretion.
               </p>
             </div>
           </div>
 
           <div className={styles.featuredCard}>
             <p className={styles.featuredCardSubtitle}>
-              <span className={styles.bold}>Go Talents</span> adds all the
-              necessary elements so that you can perform work according to
-              company requirements
+              <span className={styles.bold}>Go Talents</span> provides you with
+              all the necessary tools to enable you to perform the job accorging
+              to the company's requirements.
             </p>
             <button className={styles.button} onClick={handleJoinOurTeamClick}>
               Join Our Team
@@ -183,19 +182,42 @@ const Talents = () => {
           </div>
         </div>
       </div>
+      <div className={styles.secondCardsContainer}>
+        <div className={styles.card}>
+          <h2 className={styles.subtitle}>Professional Development</h2>
+          <p className={styles.paragraphCard}>
+            Continuous learning is fundamental to our culture. Benefit from
+            ongoing training programs, mentoring opportunities, and resources to
+            enhance your skills and stay at the forefront of your field.
+          </p>
+        </div>
+        <div className={styles.card}>
+          <h2 className={styles.subtitle}>Best salaries</h2>
+          <p className={styles.paragraphCard}>2 days off.</p>
+        </div>
+        <div className={styles.card}>
+          <h2 className={styles.subtitle}>Work-life balance</h2>
+          <p className={styles.paragraphCard}>
+            Continuous learning is fundamental to our culture. Benefit from
+            ongoing training programs, mentoring opportunities, and resources to
+            enhance your skills and stay at the forefront of your field.
+          </p>
+        </div>
+      </div>
       <div className={styles.thirdContainer}>
         <div className={styles.featuredContainer}>
           <div className={styles.title_body_container}>
             <h2 className={styles.thirdTitle}>
-              How does it work our <br />
-              <span className={styles.bold}> process recruitment? </span>
+              How does our <br />
+              <span className={styles.bold}> process recruitment </span>
+              work?
             </h2>
             <div className={styles.rectangle}></div>
           </div>
         </div>
 
         <div className={styles.fourthContainer}>
-          <h2 className={styles.secondTitle} id="workWithUsTitle">
+          <h2 className={styles.formTitle} id="workWithUsTitle">
             Work with us
           </h2>
           {showAlert && (

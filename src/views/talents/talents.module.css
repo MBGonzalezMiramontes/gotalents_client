@@ -11,7 +11,7 @@
   font-weight: bold;
   font-style: normal;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   .top_image {
     width: 100%;
     height: auto;
@@ -52,18 +52,22 @@
 
   .white_logo {
     position: absolute;
-    top: 200px;
+    top: 160px;
     width: 100%;
   }
 
-  .secondTitle {
+  .secondTitle,
+  .formTitle {
     position: relative;
     z-index: 1;
     color: #7e7f84;
     font-size: 46pt;
     font-weight: 400;
     margin-bottom: 50px;
-    margin-top: 200px;
+    margin-top: 120px;
+  }
+  .formTitle {
+    margin-top: 190px;
   }
 
   .bold {
@@ -154,6 +158,12 @@
     z-index: 1;
     right: 0px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .secondCardsContainer {
+    padding-left: 198px;
+    margin-right: 185px;
+    margin-bottom: 100px;
   }
 
   .thirdContainer {
@@ -265,7 +275,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .container {
     background-color: #f1f1f1;
     padding-bottom: 50px;
@@ -303,11 +313,12 @@
 
   .white_logo {
     position: absolute;
-    top: 480px;
+    top: auto;
     width: 64%;
   }
 
-  .secondTitle {
+  .secondTitle,
+  .formTitle {
     position: relative;
     z-index: 1;
     color: #7e7f84;
@@ -315,6 +326,9 @@
     font-weight: 400;
     margin-bottom: 20px;
     margin-top: 80px;
+  }
+  .formTitle {
+    margin-top: 50px;
   }
 
   .bold {
@@ -332,7 +346,7 @@
     justify-content: center;
     border: 2px solid white;
     border-radius: 30px;
-    margin: 30px;
+    /* margin: 30px; */
     background-color: #f1f1f1;
     margin-top: 15px;
     margin-bottom: 20px;
@@ -386,7 +400,7 @@
   }
 
   .imagesContainer {
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     padding-right: 3%;
   }
 
@@ -405,6 +419,12 @@
     width: 29%;
     height: auto;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .secondCardsContainer {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
   }
 
   .thirdContainer {
@@ -484,9 +504,6 @@
     margin-top: 0px;
   }
 
-  .fileButton {
-  }
-
   .fileButton input[type="file"] {
     cursor: pointer;
     font-family: "Sansation Regular", sans-serif;
@@ -556,7 +573,8 @@
     width: 80%;
   }
 
-  .secondTitle {
+  .secondTitle,
+  .formTitle {
     position: relative;
     z-index: 1;
     color: #7e7f84;
@@ -564,6 +582,9 @@
     font-weight: 400;
     margin-bottom: 20px;
     margin-top: 40px;
+  }
+  .formTitle{
+    margin-top: -20px;
   }
 
   .bold {
@@ -649,6 +670,12 @@
     height: 0;
   }
 
+  .secondCardsContainer {
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-bottom: 100px;
+  }
+
   .thirdContainer {
     background-color: white;
   }
@@ -662,7 +689,7 @@
   }
 
   .rectangle {
-    width: 320px;
+    width: auto;
     height: 200px;
     background-color: #7e7f84;
     margin-bottom: 50px;
@@ -681,6 +708,7 @@
   .form {
     display: flex;
     flex-direction: column;
+ 
   }
 
   .label {
@@ -721,6 +749,8 @@
   }
 
   .fileButton {
+    display:flex;
+    /* align-items: center; */
   }
 
   .fileButton input[type="file"] {
@@ -747,3 +777,4 @@
     background-color: #d88300;
   }
 }
+

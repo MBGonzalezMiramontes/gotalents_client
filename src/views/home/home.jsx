@@ -7,16 +7,15 @@ import { Link } from "react-router-dom";
 import Switch from "../../components/switch/switch";
 
 const Home = () => {
-  const [isSpanish, setIsSpanish] = useState(false);
+  // const [isSpanish, setIsSpanish] = useState(false);
 
-  const handleChangeLanguage = () => {
-    setIsSpanish(!isSpanish);
-  };
+  // const handleChangeLanguage = () => {
+  //   setIsSpanish(!isSpanish);
+  // };
 
   return (
     <div className={styles.container}>
       <img src={top_image} alt="top_image" className={styles.top_image} />
-      
       <Switch />{" "}
       {/* <div className={styles.switchContainer}>
         <input
@@ -31,19 +30,20 @@ const Home = () => {
           {isSpanish ? "English" : "Español"}
         </label>
       </div> */}
-
       <div className={styles.title_body_container}>
         <h1 className={styles.title_orange}>
           Remote horizons, global talents, infinite potential
         </h1>
         <p className={styles.paragraph}>
-          We are dedicated to identifying and recruiting top talent to meet the
-          specific needs of your company.
+          We specialize in identifying and recruiting the most outstanding
+          talent to meet the specific needs of your company, whether you are
+          seeking experienced professionals or promising young individuals.
           <br />
           <br />
-          Our dedication to excellence and personalized approach make us the
-          ideal partner to satisfy your talent needs to take your organization
-          to the next level.
+          Our
+          commitment to excellence and our personalized approach make us the
+          ideal partner to meet your talent needs and take your organization to
+          the next level.
         </p>
       </div>
       <div className={styles.columns}>
