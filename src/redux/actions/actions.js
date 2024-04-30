@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   POST_COMPANY_SUCCESS,
   POST_TALENT_SUCCESS,
-  CHANGE_LANGUAGE
+  CHANGE_LANGUAGE,
 } from "./actions-typescript";
 
 export const createCompany = ({
@@ -41,7 +41,6 @@ export const createTalent = ({
   cvFile,
   languageFile,
 }) => {
-  console.log("Datos del formulario:", name, lastname, position, email, phone, cvFile, languageFile);
   const formData = new FormData();
   formData.append("name", name);
   formData.append("lastname", lastname);
@@ -50,7 +49,6 @@ export const createTalent = ({
   formData.append("phone", phone);
   formData.append("cvFile", cvFile);
   formData.append("languageFile", languageFile);
-  console.log("Contenido del formData:", formData);
   return async function (dispatch) {
     try {
       await axios.post("http://localhost:3001/talent", formData, {
@@ -58,7 +56,6 @@ export const createTalent = ({
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("Solicitud talent enviada con éxito");
       return dispatch({
         type: POST_TALENT_SUCCESS,
       });

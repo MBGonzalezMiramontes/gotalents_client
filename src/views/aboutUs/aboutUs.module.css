@@ -1,0 +1,98 @@
+@font-face {
+  font-family: "Sansation Regular";
+  src: url("../../fonts/Sansation-Regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sansation Bold";
+  src: url("../../fonts/Sansation-Bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    background-color: #f1f1f1;
+    height: auto;
+  }
+
+  .top_image {
+    width: 100%;
+    height: auto;
+  }
+
+  .secondTitle,
+  .thirdTitle,
+  .fourthTitle {
+    padding-top: 50px;
+    margin-left: 198px;
+    margin-right: 185px;
+    line-height: 110%;
+    margin-bottom: 30px;
+    font-size: 46pt;
+    font-weight: 400;
+  }
+  .secondTitle {
+    color:#7e7f84;
+  }
+  .thirdTitle {
+    color: white;
+  }
+  .fourthTitle {
+    color: #f49728;
+  }
+
+  .titleContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    font-size: 36pt;
+    font-weight: 400;
+    margin-right: 20px; /* Ajusta el margen según sea necesario */
+  }
+
+  .paragraphOne,
+  .thirdParagraph,
+  .fourthParagraph {
+    padding-bottom: 50px;
+    margin-left: 198px;
+    margin-right: 300px;
+    font-family: "Sansation Regular", sans-serif;
+  }
+  .paragraphOne {
+    color:#7e7f84;
+    
+  }
+  .thirdParagraph {
+    color: white;
+    
+  }
+  .fourthParagraph {
+    color: #f49728;
+  }
+
+  .secondContainer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .thirdContainer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f49728;
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+  }
+
+  
+  .fourthContainer {
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border-bottom-right-radius: 100px;
+    border-top-right-radius: 100px;
+  }
+}

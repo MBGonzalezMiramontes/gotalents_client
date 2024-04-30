@@ -8,7 +8,6 @@ import { createCompany } from "../../redux/actions/actions";
 import validate from "./validation/validation";
 
 const Companies = () => {
-  console.log("-Render Companies");
   const dispatch = useDispatch();
   const [showAlert, setShowAlert] = useState(false);
   const isEnglish = useSelector((state) => state.isEnglish);
@@ -75,8 +74,6 @@ const Companies = () => {
 
   useEffect(() => {
     return () => {
-      console.log("Return function de useEffect ejecutado");
-
       setCompany({
         name: "",
         lastname: "",

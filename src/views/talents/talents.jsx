@@ -11,7 +11,6 @@ import spanish_video from "../../videos/spanish_video.mp4";
 import english_video from "../../videos/english_video.mp4";
 
 const Talents = () => {
-  console.log("Render Talents");
   const dispatch = useDispatch();
   const isEnglish = useSelector((state) => state.isEnglish);
   const [cvFile, setCvFile] = useState(null);
@@ -44,18 +43,15 @@ const Talents = () => {
       [name]: value,
     });
     if (name === "cvFile") {
-      console.log("CV File Selected:", event.target.files[0]);
       setCvFile(event.target.files[0]);
-    } else if (name === "languageFile" ) {
-      console.log("Language File Selected:", event.target.files[0]);
+    } else if (name === "languageFile") {
       setLanguageFile(event.target.files[0]);
     }
     // Llama a validate después de que se actualiza el estado del talent y el error
     validate({ ...talent, [name]: value }, name, error, setError);
   };
 
- 
-   const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     validate({ ...talent }, error, setError);
     const hasErrors = Object.values(error).some(
