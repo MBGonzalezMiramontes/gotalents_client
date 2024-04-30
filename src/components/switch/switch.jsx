@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./switch.module.css";
+import { changeLanguage } from "../../redux/actions/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const Switch = () => {
-  const [isSpanish, setIsSpanish] = useState(false);
+  const dispatch = useDispatch();
+  const isEnglish = useSelector((state) => state.isEnglish);
 
   const handleChangeLanguage = () => {
-    setIsSpanish(!isSpanish);
+   dispatch(changeLanguage(!isEnglish));
   };
 
   return (
@@ -14,12 +17,12 @@ const Switch = () => {
         id="toggle_switch"
         name="toggle_switch"
         type="checkbox"
-        checked={isSpanish}
+        checked={isEnglish}
         onChange={handleChangeLanguage}
         className={styles.switchInput}
       />
       <label className={styles.labelSwitch} htmlFor="toggle_switch">
-        {isSpanish ? "English" : "Español"}
+        {isEnglish ? "Español" : "English"}
       </label>
     </div>
   );
