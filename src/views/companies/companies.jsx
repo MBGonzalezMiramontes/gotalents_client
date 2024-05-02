@@ -6,21 +6,22 @@ import styles from "./companies.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { createCompany } from "../../redux/actions/actions";
 import validate from "./validation/validation";
+import Swal from "sweetalert2";
 
 const Companies = () => {
   const dispatch = useDispatch();
-  const [showAlert, setShowAlert] = useState(false);
   const isEnglish = useSelector((state) => state.isEnglish);
-  const [alertMessage, setAlertMessage] = useState("");
-  const [scrollToTop, setscrollToTop] = useState(true);
-  const [company, setCompany] = useState({
+  const initialCompanyState = {
     name: "",
     lastname: "",
     companyName: "",
     category: "",
     email: "",
     phone: "",
-  });
+  };
+
+  const [company, setCompany] = useState(initialCompanyState);
+
   const [error, setError] = useState({
     name: "",
     lastname: "",
@@ -30,18 +31,18 @@ const Companies = () => {
     phone: "",
   });
 
-  const handleChange = useCallback(
-    (event) => {
-      const { name, value } = event.target;
-      setCompany((prevCompany) => ({
-        ...prevCompany,
-        [name]: value,
-      }));
+  const handleChange = useCallback((event) => {
+    const { name, value } = event.target;
+    setCompany((prevCompany) => ({
+      ...prevCompany,
+      [name]: value,
+    }));
+    validate({ ...company, [name]: value }, name, error, setError);
+  }, [company, error]);
 
-      validate({ ...company, [name]: value }, name, error, setError);
-    },
-    [company, error]
-  );
+  const isFormValid =
+    Object.values(error).every((val) => val === "") &&
+    Object.values(company).every((val) => val !== "");
 
   const handleSubmit = useCallback(
     (event) => {
@@ -52,46 +53,68 @@ const Companies = () => {
         ...company,
       };
 
-      // Aquí llama a la acción createCompany con los datos de la compañía
-      dispatch(createCompany(companyData))
-        .then(() => {
-          setAlertMessage("Compañía creada exitosamente");
-          setShowAlert(true);
-        })
-        .catch((error) => {
-          console.error("Error al crear la compañía:", error);
-        });
+      Swal.fire({
+        title: isEnglish ? "Submit Form?" : "¿Enviar formulario?",
+        text: isEnglish
+          ? "Are you sure you want to submit the form?"
+          : "¿Estás seguro de que quieres enviar el formulario?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: isEnglish ? "Yes, submit" : "Sí, enviar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(createCompany(companyData))
+            .then(() => {
+              Swal.fire({
+                icon: "success",
+                title: isEnglish ? "Success!" : "¡Éxito!",
+                text: isEnglish
+                  ? "Thank you. We will contact you shortly."
+                  : "Muchas gracias. Nos pondremos en contacto a la brevedad.",
+              }).then(() => {
+                // Limpiar los campos después del éxito
+                setCompany({
+                  name: "",
+                  lastname: "",
+                  companyName: "",
+                  category: "",
+                  email: "",
+                  phone: "",
+                });
+                setError({
+                  name: "",
+                  lastname: "",
+                  companyName: "",
+                  category: "",
+                  email: "",
+                  phone: "",
+                });
+              });
+            })
+            .catch((error) => {
+              console.error("Error al crear la compañía:", error);
+              Swal.fire({
+                icon: "error",
+                title: isEnglish ? "Oops!" : "¡Ups!",
+                text: isEnglish
+                  ? "You have already registered your email previously."
+                  : "Ya has registrado tu email anteriormente.",
+              });
+            });
+        }
+      });
     },
-    [company, dispatch, error]
+    [company, dispatch, error, isEnglish]
   );
 
-  useEffect(() => {
-    if (scrollToTop) {
-      window.scrollTo(0, 0);
-      setscrollToTop(false);
-    }
-  }, [scrollToTop]);
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
-    return () => {
-      setCompany({
-        name: "",
-        lastname: "",
-        companyName: "",
-        category: "",
-        email: "",
-        phone: "",
-      });
-      setError({
-        name: "",
-        lastname: "",
-        companyName: "",
-        category: "",
-        email: "",
-        phone: "",
-      });
-      setShowAlert(false);
-    };
+    handleScrollToTop();
   }, []);
 
   return (
@@ -247,7 +270,7 @@ const Companies = () => {
                       <td>
                         <p className={styles.tableContent}>
                           {/* We ensure utmost discretion and maintain professional
-                      conduct throughout all interactions and engagements. */}
+                        conduct throughout all interactions and engagements. */}
                         </p>
                       </td>
                     </tr>
@@ -287,16 +310,11 @@ const Companies = () => {
 
             <div className={styles.fourthContainer}>
               <h2 className={styles.secondTitle}>Contact us</h2>
-              {showAlert && (
-                <div className={styles.alert}>
-                  {alertMessage}
-                  <button onClick={() => setShowAlert(false)}>Cerrar</button>
-                </div>
-              )}
               <form onSubmit={handleSubmit} className={styles.form}>
                 <label className={styles.label}>Name:</label>
                 <input
                   name="name"
+                  value={company.name}
                   onChange={handleChange}
                   type="text"
                   placeholder="My name"
@@ -306,6 +324,7 @@ const Companies = () => {
                 <label className={styles.label}>Last name:</label>
                 <input
                   name="lastname"
+                  value={company.lastname}
                   onChange={handleChange}
                   type="text"
                   placeholder="My lastname"
@@ -317,6 +336,7 @@ const Companies = () => {
                 <input
                   name="companyName"
                   onChange={handleChange}
+                  value={company.companyName}
                   type="text"
                   placeholder="Company's name"
                 />
@@ -326,6 +346,7 @@ const Companies = () => {
                 <input
                   name="category"
                   onChange={handleChange}
+                  value={company.category}
                   type="text"
                   placeholder="e.g.: Gastronomy"
                 />
@@ -335,6 +356,7 @@ const Companies = () => {
                 <input
                   name="email"
                   onChange={handleChange}
+                  value={company.email}
                   type="text"
                   placeholder="E.g.: myname@example.com"
                 />
@@ -344,11 +366,16 @@ const Companies = () => {
                 <input
                   name="phone"
                   onChange={handleChange}
+                  value={company.phone}
                   type="text"
-                  placeholder="(Optional) Contact telephone number"
+                  placeholder="Contact phone number"
                 />
                 <label className={styles.formErrors}>{error.phone}</label>
-                <button type="submit" className={styles.button}>
+                <button
+                  type="submit"
+                  className={styles.button}
+                  disabled={!isFormValid}
+                >
                   {" "}
                   Submit
                 </button>
@@ -515,7 +542,7 @@ const Companies = () => {
                       <td>
                         <p className={styles.tableContent}>
                           {/* We ensure utmost discretion and maintain professional
-                      conduct throughout all interactions and engagements. */}
+                        conduct throughout all interactions and engagements. */}
                         </p>
                       </td>
                     </tr>
@@ -557,17 +584,12 @@ const Companies = () => {
 
             <div className={styles.fourthContainer}>
               <h2 className={styles.secondTitle}>Contactanos</h2>
-              {showAlert && (
-                <div className={styles.alert}>
-                  {alertMessage}
-                  <button onClick={() => setShowAlert(false)}>Cerrar</button>
-                </div>
-              )}
               <form onSubmit={handleSubmit} className={styles.form}>
                 <label className={styles.label}>Nombre:</label>
                 <input
                   name="name"
                   onChange={handleChange}
+                  value={company.name}
                   type="text"
                   placeholder="Mi nombre"
                 />
@@ -577,6 +599,7 @@ const Companies = () => {
                 <input
                   name="lastname"
                   onChange={handleChange}
+                  value={company.lastname}
                   type="text"
                   placeholder="Mi apellido"
                 />
@@ -587,6 +610,7 @@ const Companies = () => {
                 <input
                   name="companyName"
                   onChange={handleChange}
+                  value={company.companyName}
                   type="text"
                   placeholder="Nombre de la compañía"
                 />
@@ -596,6 +620,7 @@ const Companies = () => {
                 <input
                   name="category"
                   onChange={handleChange}
+                  value={company.category}
                   type="text"
                   placeholder="Ej: Gastronomía"
                 />
@@ -610,15 +635,20 @@ const Companies = () => {
                 />
                 <label className={styles.formErrors}>{error.email}</label>
 
-                <label className={styles.label}>Teléfono:</label>
+                <label className={styles.label}>Número de teléfono:</label>
                 <input
                   name="phone"
                   onChange={handleChange}
+                  value={company.phone}
                   type="text"
-                  placeholder="(Opcional) Teléfono de contacto"
+                  placeholder="Número de teléfono de contacto"
                 />
                 <label className={styles.formErrors}>{error.phone}</label>
-                <button type="submit" className={styles.button}>
+                <button
+                  type="submit"
+                  className={styles.button}
+                  disabled={!isFormValid}
+                >
                   {" "}
                   Enviar
                 </button>

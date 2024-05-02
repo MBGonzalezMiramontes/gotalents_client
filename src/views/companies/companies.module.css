@@ -253,6 +253,13 @@
   .button:hover {
     background-color: #1a8cc4;
   }
+  .button[disabled] {
+    background-color: #cccccc; 
+    cursor: not-allowed; 
+  }
+  .button[disabled]:hover {
+    background-color: #cccccc;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -467,6 +474,13 @@
   }
   .button:hover {
     background-color: #1a8cc4; /* Color de fondo al pasar el mouse */
+  }
+  .button[disabled] {
+    background-color: #cccccc; 
+    cursor: not-allowed; 
+  }
+  .button[disabled]:hover {
+    background-color: #cccccc;
   }
 }
 
@@ -686,6 +700,13 @@
   }
   .button:hover {
     background-color: #1a8cc4;
+  }
+  .button[disabled] {
+    background-color: #cccccc; 
+    cursor: not-allowed; 
+  }
+  .button[disabled]:hover {
+    background-color: #cccccc;
   }
 }
 

@@ -9,22 +9,21 @@ import { createTalent } from "../../redux/actions/actions";
 import validate from "./validation/validation";
 import spanish_video from "../../videos/spanish_video.mp4";
 import english_video from "../../videos/english_video.mp4";
+import Swal from "sweetalert2";
 
 const Talents = () => {
   const dispatch = useDispatch();
   const isEnglish = useSelector((state) => state.isEnglish);
   const [cvFile, setCvFile] = useState(null);
   const [languageFile, setLanguageFile] = useState(null);
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
   const [talent, setTalent] = useState({
     name: "",
     lastname: "",
     email: "",
     phone: "",
     position: "",
-    cvFile: null,
-    languageFile: null,
+    cvFile: "",
+    languageFile: "",
   });
   const [error, setError] = useState({
     name: "",
@@ -57,29 +56,67 @@ const Talents = () => {
     const hasErrors = Object.values(error).some(
       (errorMessage) => errorMessage !== ""
     );
-    if (!cvFile) {
-      setAlertMessage(
-        "Por favor, carga tu currículum antes de enviar la solicitud."
-      );
-      setShowAlert(true);
-      return; // Detener el envío del formulario
-    }
     if (!hasErrors) {
-      const talentData = {
-        ...talent,
-        cvFile,
-        languageFile,
-      };
-      console.log("Submitting Talent Data:", talentData);
+      Swal.fire({
+        title: isEnglish ? "Submit Form?" : "¿Enviar formulario?",
+        text: isEnglish
+          ? "Are you sure you want to submit the form?"
+          : "¿Estás seguro de que quieres enviar el formulario?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: isEnglish ? "Yes, submit" : "Sí, enviar",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const talentData = {
+            ...talent,
+            cvFile,
+            languageFile,
+          };
 
-      dispatch(createTalent(talentData))
-        .then(() => {
-          setAlertMessage("Haz enviado tu solicitud correctamente.");
-          setShowAlert(true);
-        })
-        .catch((error) => {
-          console.error("Ups, no hemos podido enviar tu solicitud:", error);
-        });
+          dispatch(createTalent(talentData))
+            .then(() => {
+              Swal.fire({
+                title: isEnglish ? "Success!" : "¡Éxito!",
+                text: isEnglish
+                  ? "Thank you. We will contact you shortly."
+                  : "Muchas gracias. Nos pondremos en contacto a la brevedad.",
+                icon: "success",
+              }).then(() => {
+                // Limpiar los campos después del éxito
+                setTalent({
+                  name: "",
+                  lastname: "",
+                  email: "",
+                  phone: "",
+                  position: "",
+                  cvFile: "", // Cambiar null por ""
+                  languageFile: "", // Cambiar null por ""
+                });
+                setError({
+                  name: "",
+                  lastname: "",
+                  email: "",
+                  phone: "",
+                  position: "",
+                  cvFile: "",
+                  languageFile: "",
+                });
+              });
+            })
+            .catch((error) => {
+              console.error("Ups, no hemos podido enviar tu solicitud:", error);
+              Swal.fire({
+                icon: "error",
+                title: isEnglish ? "Oops!" : "¡Ups!",
+                text: isEnglish
+                  ? "You have already registered your email previously."
+                  : "Ya has registrado tu email anteriormente.",
+              });
+            });
+        }
+      });
     }
   };
 
@@ -231,12 +268,6 @@ const Talents = () => {
               <h2 className={styles.formTitle} id="workWithUsTitle">
                 Work with us
               </h2>
-              {showAlert && (
-                <div className={styles.alert}>
-                  {alertMessage}
-                  <button onClick={() => setShowAlert(false)}>Cerrar</button>
-                </div>
-              )}
 
               <form
                 onSubmit={handleSubmit}
@@ -247,6 +278,7 @@ const Talents = () => {
               >
                 <label className={styles.label}>Name:</label>
                 <input
+                  value={talent.name}
                   name="name"
                   onChange={handleChange}
                   type="text"
@@ -256,6 +288,7 @@ const Talents = () => {
 
                 <label className={styles.label}>Last name:</label>
                 <input
+                  value={talent.lastname}
                   name="lastname"
                   onChange={handleChange}
                   type="text"
@@ -265,6 +298,7 @@ const Talents = () => {
 
                 <label className={styles.label}>Position:</label>
                 <input
+                  value={talent.position}
                   name="position"
                   onChange={handleChange}
                   type="text"
@@ -274,6 +308,7 @@ const Talents = () => {
 
                 <label className={styles.label}>E-mail:</label>
                 <input
+                  value={talent.email}
                   name="email"
                   onChange={handleChange}
                   type="text"
@@ -283,10 +318,11 @@ const Talents = () => {
 
                 <label className={styles.label}>Phone number:</label>
                 <input
+                  value={talent.phone}
                   name="phone"
                   onChange={handleChange}
                   type="text"
-                  placeholder="(Optional) Contact telephone number"
+                  placeholder="Contact phone number"
                 />
                 <label className={styles.formErrors}>{error.phone}</label>
 
@@ -294,6 +330,7 @@ const Talents = () => {
                 <p className={styles.text}>Pdf format</p>
                 <div className={styles.fileButton}>
                   <input
+                    value={talent.cvFile}
                     name="cvFile"
                     onChange={handleChange}
                     type="file"
@@ -307,6 +344,7 @@ const Talents = () => {
                 <p className={styles.text}>Pdf format</p>
                 <div className={styles.fileButton}>
                   <input
+                    value={talent.languageFile}
                     name="languageFile"
                     onChange={handleChange}
                     type="file"
@@ -316,7 +354,23 @@ const Talents = () => {
                 <label className={styles.formErrors}>
                   {error.languageFile}
                 </label>
-                <button type="submit" className={styles.buttonSubmit}>
+                <button
+                  disabled={
+                    !talent.name ||
+                    !talent.lastname ||
+                    !talent.email ||
+                    !talent.phone ||
+                    !talent.position ||
+                    !!error.name ||
+                    !!error.lastname ||
+                    !!error.email ||
+                    !!error.phone ||
+                    !!error.position ||
+                    !cvFile
+                  }
+                  type="submit"
+                  className={styles.buttonSubmit}
+                >
                   {" "}
                   Submit
                 </button>
@@ -464,12 +518,6 @@ const Talents = () => {
               <h2 className={styles.formTitle} id="workWithUsTitle">
                 Contactanos
               </h2>
-              {showAlert && (
-                <div className={styles.alert}>
-                  {alertMessage}
-                  <button onClick={() => setShowAlert(false)}>Cerrar</button>
-                </div>
-              )}
 
               <form
                 onSubmit={handleSubmit}
@@ -481,6 +529,7 @@ const Talents = () => {
                 <label className={styles.label}>Nombre:</label>
                 <input
                   name="name"
+                  value={talent.name}
                   onChange={handleChange}
                   type="text"
                   placeholder="Mi nombre"
@@ -490,6 +539,7 @@ const Talents = () => {
                 <label className={styles.label}>Apellido:</label>
                 <input
                   name="lastname"
+                  value={talent.lastname}
                   onChange={handleChange}
                   type="text"
                   placeholder="Mi apellido"
@@ -499,6 +549,7 @@ const Talents = () => {
                 <label className={styles.label}>Carrera:</label>
                 <input
                   name="position"
+                  value={talent.position}
                   onChange={handleChange}
                   type="text"
                   placeholder="Ej: Arquitecto"
@@ -508,6 +559,7 @@ const Talents = () => {
                 <label className={styles.label}>Correo electrónico:</label>
                 <input
                   name="email"
+                  value={talent.email}
                   onChange={handleChange}
                   type="text"
                   placeholder="Ej: micorreo@ejemplo.com"
@@ -517,9 +569,10 @@ const Talents = () => {
                 <label className={styles.label}>Teléfono:</label>
                 <input
                   name="phone"
+                  value={talent.phone}
                   onChange={handleChange}
                   type="text"
-                  placeholder="(Opcional) Teléfono de contacto"
+                  placeholder="Teléfono de contacto"
                 />
                 <label className={styles.formErrors}>{error.phone}</label>
 
@@ -527,6 +580,7 @@ const Talents = () => {
                 <p className={styles.text}>Formato .pdf</p>
                 <div className={styles.fileButton}>
                   <input
+                    value={talent.cvFile}
                     name="cvFile"
                     onChange={handleChange}
                     type="file"
@@ -540,6 +594,7 @@ const Talents = () => {
                 <p className={styles.text}>Formato .pdf</p>
                 <div className={styles.fileButton}>
                   <input
+                    value={talent.languageFile}
                     name="languageFile"
                     onChange={handleChange}
                     type="file"
@@ -549,7 +604,23 @@ const Talents = () => {
                 <label className={styles.formErrors}>
                   {error.languageFile}
                 </label>
-                <button type="submit" className={styles.buttonSubmit}>
+                <button
+                  disabled={
+                    !talent.name ||
+                    !talent.lastname ||
+                    !talent.email ||
+                    !talent.phone ||
+                    !talent.position ||
+                    !!error.name ||
+                    !!error.lastname ||
+                    !!error.email ||
+                    !!error.phone ||
+                    !!error.position ||
+                    !cvFile
+                  }
+                  type="submit"
+                  className={styles.buttonSubmit}
+                >
                   {" "}
                   Enviar
                 </button>

@@ -273,6 +273,13 @@
   .buttonSubmit:hover {
     background-color: #d88300;
   }
+  .buttonSubmit[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  .buttonSubmit[disabled]:hover {
+    background-color: #cccccc;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -525,6 +532,13 @@
   .buttonSubmit:hover {
     background-color: #d88300;
   }
+  .buttonSubmit[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  .buttonSubmit[disabled]:hover {
+    background-color: #cccccc;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -771,5 +785,12 @@
   }
   .buttonSubmit:hover {
     background-color: #d88300;
+  }
+  .buttonSubmit[disabled] {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  .buttonSubmit[disabled]:hover {
+    background-color: #cccccc;
   }
 }

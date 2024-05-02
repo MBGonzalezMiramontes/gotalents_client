@@ -27,7 +27,7 @@ export const createCompany = ({
         type: POST_COMPANY_SUCCESS,
       });
     } catch (error) {
-      alert(error.message);
+      throw error;
     }
   };
 };
@@ -60,7 +60,7 @@ export const createTalent = ({
         type: POST_TALENT_SUCCESS,
       });
     } catch (error) {
-      alert(error.message);
+      throw error; 
     }
   };
 };
