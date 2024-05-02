@@ -31,14 +31,17 @@ const Companies = () => {
     phone: "",
   });
 
-  const handleChange = useCallback((event) => {
-    const { name, value } = event.target;
-    setCompany((prevCompany) => ({
-      ...prevCompany,
-      [name]: value,
-    }));
-    validate({ ...company, [name]: value }, name, error, setError);
-  }, [company, error]);
+  const handleChange = useCallback(
+    (event) => {
+      const { name, value } = event.target;
+      setCompany((prevCompany) => ({
+        ...prevCompany,
+        [name]: value,
+      }));
+      validate({ ...company, [name]: value }, name, error, setError);
+    },
+    [company, error]
+  );
 
   const isFormValid =
     Object.values(error).every((val) => val === "") &&
@@ -630,6 +633,7 @@ const Companies = () => {
                 <input
                   name="email"
                   onChange={handleChange}
+                  value={company.email}
                   type="text"
                   placeholder="Ej: micorreo@ejemplo.com"
                 />

@@ -9,28 +9,28 @@ const NavBar = () => {
     <div className={styles.container}>
       <div className={styles.linkContainer}>
         <Link to="/" className={styles.link}>
-          <div className={styles.iconContainer}>
+          <div className={styles.linkContent}>
             <img src={logo} alt="logo" className={styles.logo} />
+            <span>Home</span>
           </div>
-          Home
         </Link>
         <Link to="/companies" className={styles.link}>
-          <div className={styles.iconContainer}>
+          <div className={styles.linkContent}>
             <Building className={styles.icon} />
+            <span>Companies</span>
           </div>
-          Companies
         </Link>
         <Link to="/talents" className={styles.link}>
-          <div className={styles.iconContainer}>
+          <div className={styles.linkContent}>
             <Pen className={styles.icon} />
+            <span>Talents</span>
           </div>
-          Talents
         </Link>
         <Link to="/aboutus" className={styles.link}>
-          <div className={styles.iconContainer}>
+          <div className={styles.linkContent}>
             <InfoCircle className={styles.icon} />
+            <span>About Us</span>
           </div>
-          About Us
         </Link>
       </div>
     </div>

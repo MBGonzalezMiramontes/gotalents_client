@@ -60,7 +60,7 @@ export const createTalent = ({
         type: POST_TALENT_SUCCESS,
       });
     } catch (error) {
-      throw error; 
+      throw error;
     }
   };
 };
