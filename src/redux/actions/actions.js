@@ -1,9 +1,9 @@
-import axios from "axios";
 import {
   POST_COMPANY_SUCCESS,
   POST_TALENT_SUCCESS,
   CHANGE_LANGUAGE,
 } from "./actions-typescript";
+import GoTaletsServer from "../../utils/NetworkingUtils";
 
 export const createCompany = ({
   name,
@@ -15,7 +15,7 @@ export const createCompany = ({
 }) => {
   return async function (dispatch) {
     try {
-      await axios.post("http://localhost:3001/company", {
+      await GoTaletsServer.post("/company", {
         name,
         lastname,
         companyName,
@@ -51,7 +51,7 @@ export const createTalent = ({
   formData.append("languageFile", languageFile);
   return async function (dispatch) {
     try {
-      await axios.post("http://localhost:3001/talent", formData, {
+      await GoTaletsServer.post("/talent", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

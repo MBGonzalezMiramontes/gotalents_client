@@ -109,10 +109,12 @@ const Talents = () => {
               console.error("Ups, no hemos podido enviar tu solicitud:", error);
               Swal.fire({
                 icon: "error",
-                title: isEnglish ? "Oops!" : "¡Ups!",
+                title: isEnglish
+                  ? "Oops! We have made a mistake."
+                  : "¡Ups! Hemos cometido un error.",
                 text: isEnglish
-                  ? "You have already registered your email previously."
-                  : "Ya has registrado tu email anteriormente.",
+                  ? "Please try again. If the error persists, or contact us contact@gotalentsglobal.com"
+                  : "Por favor, intentalo nuevamente. Si el error persiste, o comunicate con nosotros contact@gotalentsglobal.com",
               });
             });
         }
