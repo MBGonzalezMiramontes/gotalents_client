@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const GoTaletsServer = axios.create({
-    baseURL:"https://www.gotalentsglobal.com:3001",
+    baseURL:"https://www.gotalentsglobal.com",
 });
 
 export default GoTaletsServer;
