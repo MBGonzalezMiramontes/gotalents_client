@@ -3,7 +3,7 @@ import {
   POST_TALENT_SUCCESS,
   CHANGE_LANGUAGE,
 } from "./actions-typescript";
-import GoTaletsServer from "../../utils/NetworkingUtils";
+import GoTalentsServer from "../../utils/NetworkingUtils";
 
 export const createCompany = ({
   name,
@@ -15,7 +15,7 @@ export const createCompany = ({
 }) => {
   return async function (dispatch) {
     try {
-      await GoTaletsServer.post("/company", {
+      await GoTalentsServer.post("/api/company", {
         name,
         lastname,
         companyName,
@@ -51,7 +51,7 @@ export const createTalent = ({
   formData.append("languageFile", languageFile);
   return async function (dispatch) {
     try {
-      await GoTaletsServer.post("/talent", formData, {
+      await GoTalentsServer.post("/api/talent", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

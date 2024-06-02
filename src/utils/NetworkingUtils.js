@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const GoTaletsServer = axios.create({
-    baseURL:"https://api.gotalentsglobal.com",
+const GoTalentsServer = axios.create({
+    baseURL:"http://localhost:3001",
 });
 
-export default GoTaletsServer;
+export default GoTalentsServer;
